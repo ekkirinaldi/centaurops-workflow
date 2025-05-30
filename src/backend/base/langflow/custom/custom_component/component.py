@@ -1223,7 +1223,7 @@ class Component(CustomComponent):
     def get_project_name(self):
         if hasattr(self, "_tracing_service") and self._tracing_service:
             return self._tracing_service.project_name
-        return "Langflow"
+        return "CentaurOps"
 
     def log(self, message: LoggableType | list[LoggableType], name: str | None = None) -> None:
         """Logs a message.

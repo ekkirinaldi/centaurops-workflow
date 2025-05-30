@@ -50,12 +50,12 @@ def sample_image(langflow_cache_dir):
 
 def test_message_prompt_serialization():
     template = "Hello, {name}!"
-    message = Message.from_template(template, name="Langflow")
-    assert message.text == "Hello, Langflow!"
+    message = Message.from_template(template, name="CentaurOps")
+    assert message.text == "Hello, CentaurOps!"
 
     prompt = message.load_lc_prompt()
     assert isinstance(prompt, ChatPromptTemplate)
-    assert prompt.messages[0].content == "Hello, Langflow!"
+    assert prompt.messages[0].content == "Hello, CentaurOps!"
 
 
 def test_message_from_human_text():

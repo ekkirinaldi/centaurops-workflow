@@ -98,7 +98,7 @@ module.exports = {
         {
           type: "doc",
           id: "Develop/develop-application",
-          label: "Develop an application in Langflow"
+          label: "Develop an application in CentaurOps"
         },
         {
           type: "doc",
@@ -144,7 +144,7 @@ module.exports = {
         {
           type: "doc",
           id: "Deployment/deployment-caddyfile",
-          label: "Deploy Langflow on a remote server"
+          label: "Deploy CentaurOps on a remote server"
         },
         {
           type: "category",
@@ -153,7 +153,7 @@ module.exports = {
             {
               type: "doc",
               id: "Deployment/deployment-prod-best-practices",
-              label: "Langflow architecture and best practices"
+              label: "CentaurOps architecture and best practices"
             },
             {
               type: "doc",
@@ -292,7 +292,7 @@ module.exports = {
         {
           type: "doc",
           id: "Support/luna-for-langflow",
-          label: "Luna for Langflow",
+          label: "Luna for CentaurOps",
         },
       ],
     },
@@ -303,8 +303,8 @@ module.exports = {
         <a href="https://astra.datastax.com/signup?type=langflow" target="_blank" class="menu__link">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
           <div class="sidebar-ad-text-container">
-            <span class="sidebar-ad-text">Use Langflow in the cloud</span>
-            <span class="sidebar-ad-text sidebar-ad-text-gradient">Sign up for DataStax Langflow</span>
+            <span class="sidebar-ad-text">Use CentaurOps in the cloud</span>
+            <span class="sidebar-ad-text sidebar-ad-text-gradient">Sign up for DataStax CentaurOps</span>
           </div>
         </a>
       `,

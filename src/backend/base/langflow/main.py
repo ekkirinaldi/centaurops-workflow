@@ -118,9 +118,9 @@ def get_lifespan(*, fix_migration=False, version=None):
 
         # Startup message
         if version:
-            logger.debug(f"Starting Langflow v{version}...")
+            logger.debug(f"Starting CentaurOps v{version}...")
         else:
-            logger.debug("Starting Langflow...")
+            logger.debug("Starting CentaurOps...")
 
         temp_dirs: list[TemporaryDirectory] = []
         sync_flows_from_fs_task = None
@@ -198,7 +198,7 @@ def get_lifespan(*, fix_migration=False, version=None):
             temp_dir_cleanups = [asyncio.to_thread(temp_dir.cleanup) for temp_dir in temp_dirs]
             await asyncio.gather(*temp_dir_cleanups)
             # Final message
-            logger.debug("Langflow shutdown complete")
+            logger.debug("CentaurOps shutdown complete")
 
     return lifespan
 
@@ -211,7 +211,7 @@ def create_app():
     configure()
     lifespan = get_lifespan(version=__version__)
     app = FastAPI(
-        title="Langflow",
+        title="CentaurOps",
         version=__version__,
         lifespan=lifespan,
     )
@@ -361,7 +361,7 @@ def setup_static_files(app: FastAPI, static_files_dir: Path) -> None:
 
 
 def get_static_files_dir():
-    """Get the static files directory relative to Langflow's main.py file."""
+    """Get the static files directory relative to CentaurOps's main.py file."""
     frontend_path = Path(__file__).parent
     return frontend_path / "frontend"
 

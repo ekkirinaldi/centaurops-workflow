@@ -9,9 +9,9 @@ const isProduction = process.env.NODE_ENV === "production";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Langflow Documentation",
+  title: "CentaurOps Documentation",
   tagline:
-    "Langflow is a low-code app builder for RAG and multi-agent AI applications.",
+    "CentaurOps is a low-code app builder for RAG and multi-agent AI applications.",
   favicon: "img/favicon.ico",
   url: "https://docs.langflow.org",
   baseUrl: process.env.BASE_URL ? process.env.BASE_URL : "/",
@@ -138,7 +138,7 @@ const config = {
             to: "/",
             from: [
               "/whats-new-a-new-chapter-langflow",
-              "/👋 Welcome-to-Langflow",
+              "/👋 Welcome-to-CentaurOps",
               "/getting-started-welcome-to-langflow",
               "/guides-new-to-llms",
             ],
@@ -291,7 +291,7 @@ const config = {
       navbar: {
         hideOnScroll: true,
         logo: {
-          alt: "Langflow",
+          alt: "CentaurOps",
           src: "img/langflow-logo-black.svg",
           srcDark: "img/langflow-logo-white.svg",
         },
@@ -345,7 +345,7 @@ const config = {
       },
       footer: {
         logo: {
-          alt: "Langflow",
+          alt: "CentaurOps",
           src: "img/langflow-logo-black.svg",
           srcDark: "img/langflow-logo-white.svg",
           width: 160,
@@ -357,7 +357,7 @@ const config = {
             items: [
               {
                 html: `<div class="footer-links">
-                  <span>© ${new Date().getFullYear()} Langflow</span>
+                  <span>© ${new Date().getFullYear()} CentaurOps</span>
                   <span id="preferenceCenterContainer"> ·&nbsp; <a href="https://langflow.org/preferences">Manage Privacy Choices</a></span>
                   </div>`,
               },

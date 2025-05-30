@@ -1157,7 +1157,7 @@
         },
         "data": {
           "node": {
-            "description": "## Langflow OAuth Integration\n\n[Langflow - OAuth Integration Documentation](docs.langflow.org/integrations-setup-google-oauth-langflow)\n\n[Drive API Documentation](https://developers.google.com/drive/api/guides/api-specific-auth)\n\n## Quickstart\n1. Add this scope to the **Google OAuth token component** to grant access to Google Drive.\n```\nhttps://www.googleapis.com/auth/drive.readonly\n```\n2. Add your **Credentials File** JSON to the **Google OAuth Token** component.\n3. Add your OpenAI API key to the **OpenAI model component**.\n4. In the **Google Drive loader component**, enter the **Document ID** of the document you want to translate.\n5. Open the **Playground** to view the translated document.",
+            "description": "## CentaurOps OAuth Integration\n\n[CentaurOps - OAuth Integration Documentation](docs.langflow.org/integrations-setup-google-oauth-langflow)\n\n[Drive API Documentation](https://developers.google.com/drive/api/guides/api-specific-auth)\n\n## Quickstart\n1. Add this scope to the **Google OAuth token component** to grant access to Google Drive.\n```\nhttps://www.googleapis.com/auth/drive.readonly\n```\n2. Add your **Credentials File** JSON to the **Google OAuth Token** component.\n3. Add your OpenAI API key to the **OpenAI model component**.\n4. In the **Google Drive loader component**, enter the **Document ID** of the document you want to translate.\n5. Open the **Playground** to view the translated document.",
             "display_name": "",
             "documentation": "",
             "template": {

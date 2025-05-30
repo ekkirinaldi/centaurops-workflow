@@ -26,7 +26,7 @@ from pydantic import BaseModel
 
 class AllInputsComponent(Component):
     display_name = "All Inputs Component"
-    description = "A component with all input types available in Langflow."
+    description = "A component with all input types available in CentaurOps."
     documentation: str = "http://docs.langflow.org/components/all_inputs"
     icon = "code"
     name = "AllInputsComponent"

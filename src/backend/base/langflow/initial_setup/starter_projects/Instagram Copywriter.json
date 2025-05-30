@@ -460,7 +460,7 @@
                 "trace_as_input": true,
                 "trace_as_metadata": true,
                 "type": "str",
-                "value": "Create a Langflow post"
+                "value": "Create a CentaurOps post"
               },
               "sender": {
                 "_input_type": "DropdownInput",
@@ -1604,7 +1604,7 @@
                 "advanced": true,
                 "display_name": "External Memory",
                 "dynamic": false,
-                "info": "Retrieve messages from an external memory. If empty, it will use the Langflow tables.",
+                "info": "Retrieve messages from an external memory. If empty, it will use the CentaurOps tables.",
                 "input_types": [
                   "Memory"
                 ],

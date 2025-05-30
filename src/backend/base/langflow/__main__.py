@@ -165,7 +165,7 @@ def run(
     ),
     ssl_key_file_path: str | None = typer.Option(None, help="Defines the SSL key file path.", show_default=False),
 ) -> None:
-    """Run Langflow."""
+    """Run CentaurOps."""
     # Register SIGTERM handler
     signal.signal(signal.SIGTERM, handle_sigterm)
 
@@ -283,7 +283,7 @@ def run_on_mac_or_linux(host, port, log_level, options, app, protocol):
 
 
 def run_on_windows(host, port, log_level, options, app, protocol) -> None:
-    """Run the Langflow server on Windows."""
+    """Run the CentaurOps server on Windows."""
     print_banner(host, port, protocol)
     run_langflow(host, port, log_level, options, app)
 
@@ -406,24 +406,24 @@ def print_banner(host: str, port: int, protocol: str) -> None:
     )
     telemetry_text = (
         (
-            "We collect anonymous usage data to improve Langflow.\n"
+            "We collect anonymous usage data to improve CentaurOps.\n"
             "To opt out, set: [bold]DO_NOT_TRACK=true[/bold] in your environment."
         )
         if os.getenv("DO_NOT_TRACK", os.getenv("LANGFLOW_DO_NOT_TRACK", "False")).lower() != "true"
         else (
-            "We are [bold]not[/bold] collecting anonymous usage data to improve Langflow.\n"
+            "We are [bold]not[/bold] collecting anonymous usage data to improve CentaurOps.\n"
             "To contribute, set: [bold]DO_NOT_TRACK=false[/bold] in your environment."
         )
     )
-    access_link = f"[bold]🟢 Open Langflow →[/bold] [link={protocol}://{host}:{port}]{protocol}://{host}:{port}[/link]"
+    access_link = f"[bold]🟢 Open CentaurOps →[/bold] [link={protocol}://{host}:{port}]{protocol}://{host}:{port}[/link]"
 
-    message = f"{title}\n{info_text}\n\n{telemetry_text}\n\n{access_link}"
+    message = f"{title}\n{info_text}\n\n{access_link}"
 
     console.print(Panel.fit(message, border_style="#7528FC", padding=(1, 2)))
 
 
 def run_langflow(host, port, log_level, options, app) -> None:
-    """Run Langflow server on localhost."""
+    """Run CentaurOps server on localhost."""
     if platform.system() == "Windows":
         import uvicorn
 

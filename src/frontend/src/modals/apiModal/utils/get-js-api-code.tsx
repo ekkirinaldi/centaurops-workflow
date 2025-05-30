@@ -1,7 +1,7 @@
 import { customGetHostProtocol } from "@/customization/utils/custom-get-host-protocol";
 
 /**
- * Generates JavaScript code for making API calls to a Langflow endpoint.
+ * Generates JavaScript code for making API calls to a CentaurOps endpoint.
  *
  * @param {Object} params - The parameters for generating the API code
  * @param {string} params.flowId - The ID of the flow to run

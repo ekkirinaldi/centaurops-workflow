@@ -83,7 +83,7 @@ class TwelveLabsVideoEmbeddingsComponent(LCEmbeddingsModel):
     description = "Generate embeddings from videos using Twelve Labs video embedding models."
     name = "TwelveLabsVideoEmbeddings"
     icon = "TwelveLabs"
-    documentation = "https://github.com/twelvelabs-io/twelvelabs-developer-experience/blob/main/integrations/Langflow/TWELVE_LABS_COMPONENTS_README.md"
+    documentation = "https://github.com/twelvelabs-io/twelvelabs-developer-experience/blob/main/integrations/CentaurOps/TWELVE_LABS_COMPONENTS_README.md"
     inputs = [
         SecretStrInput(name="api_key", display_name="API Key", required=True),
         DropdownInput(

@@ -359,7 +359,7 @@ export default function IOModal({
                       className="w-full !rounded-xl shadow-lg"
                     >
                       <LangflowLogoColor />
-                      <div className="text-sm">Built with Langflow</div>
+                      <div className="text-sm">Built with CentaurOps</div>
                     </Button>
                   </div>
                 )}
@@ -370,7 +370,7 @@ export default function IOModal({
                 <ShadTooltip
                   styleClasses="z-50"
                   side="right"
-                  content="Built with Langflow"
+                  content="Built with CentaurOps"
                 >
                   <Button
                     variant="primary"

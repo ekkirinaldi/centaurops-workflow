@@ -1,4 +1,4 @@
-"""Script to update Langflow starter projects with the latest component versions."""
+"""Script to update CentaurOps starter projects with the latest component versions."""
 
 import asyncio
 import os

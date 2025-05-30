@@ -212,7 +212,7 @@ class RedisCache(ExternalAsyncBaseCacheService, Generic[LockType]):
         except ImportError as exc:
             msg = (
                 "RedisCache requires the redis-py package."
-                " Please install Langflow with the deploy extra: pip install langflow[deploy]"
+                " Please install CentaurOps with the deploy extra: pip install langflow[deploy]"
             )
             raise ImportError(msg) from exc
         logger.warning(

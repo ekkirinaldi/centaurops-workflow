@@ -474,16 +474,16 @@ class MCPToolsComponent(Component):
                 except ValueError as e:
                     # URL validation error
                     logger.error(f"SSE URL validation error: {e}")
-                    msg = f"Invalid SSE URL configuration: {e}. Please check your Langflow deployment URL and port."
+                    msg = f"Invalid SSE URL configuration: {e}. Please check your CentaurOps deployment URL and port."
                     raise ValueError(msg) from e
                 except ConnectionError as e:
                     # Connection failed after retries
                     logger.error(f"SSE connection error: {e}")
                     msg = (
-                        f"Could not connect to Langflow SSE endpoint: {e}. "
+                        f"Could not connect to CentaurOps SSE endpoint: {e}. "
                         "Please verify:\n"
-                        "1. Langflow server is running\n"
-                        "2. The SSE URL matches your Langflow deployment port\n"
+                        "1. CentaurOps server is running\n"
+                        "2. The SSE URL matches your CentaurOps deployment port\n"
                         "3. There are no network issues preventing the connection"
                     )
                     raise ValueError(msg) from e

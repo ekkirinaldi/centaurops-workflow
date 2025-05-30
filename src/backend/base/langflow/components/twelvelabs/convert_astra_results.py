@@ -13,7 +13,7 @@ class ConvertAstraToTwelveLabs(Component):
     description = "Converts AstraDB search results to inputs compatible with TwelveLabs Pegasus."
     icon = "TwelveLabs"
     name = "ConvertAstraToTwelveLabs"
-    documentation = "https://github.com/twelvelabs-io/twelvelabs-developer-experience/blob/main/integrations/Langflow/TWELVE_LABS_COMPONENTS_README.md"
+    documentation = "https://github.com/twelvelabs-io/twelvelabs-developer-experience/blob/main/integrations/CentaurOps/TWELVE_LABS_COMPONENTS_README.md"
 
     inputs = [
         HandleInput(

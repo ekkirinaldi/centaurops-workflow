@@ -73,14 +73,14 @@ class Settings(BaseSettings):
     (i.e. in the package directory)."""
 
     dev: bool = False
-    """If True, Langflow will run in development mode."""
+    """If True, CentaurOps will run in development mode."""
     database_url: str | None = None
-    """Database URL for Langflow. If not provided, Langflow will use a SQLite database.
+    """Database URL for CentaurOps. If not provided, CentaurOps will use a SQLite database.
     The driver shall be an async one like `sqlite+aiosqlite` (`sqlite` and `postgresql`
     will be automatically converted to the async drivers `sqlite+aiosqlite` and
     `postgresql+psycopg` respectively)."""
     database_connection_retry: bool = False
-    """If True, Langflow will retry to connect to the database if it fails."""
+    """If True, CentaurOps will retry to connect to the database if it fails."""
     pool_size: int = 20
     """The number of connections to keep open in the connection pool.
     For high load scenarios, this should be increased based on expected concurrent users."""
@@ -130,9 +130,9 @@ class Settings(BaseSettings):
     """The store can be 'db' or 'kubernetes'."""
 
     prometheus_enabled: bool = False
-    """If set to True, Langflow will expose Prometheus metrics."""
+    """If set to True, CentaurOps will expose Prometheus metrics."""
     prometheus_port: int = 9090
-    """The port on which Langflow will expose Prometheus metrics. 9090 is the default port."""
+    """The port on which CentaurOps will expose Prometheus metrics. 9090 is the default port."""
 
     remove_api_keys: bool = False
     components_path: list[str] = []
@@ -163,7 +163,7 @@ class Settings(BaseSettings):
 
     fallback_to_env_var: bool = True
     """If set to True, Global Variables set in the UI will fallback to a environment variable
-    with the same name in case Langflow fails to retrieve the variable value."""
+    with the same name in case CentaurOps fails to retrieve the variable value."""
 
     store_environment_variables: bool = True
     """Whether to store environment variables as Global Variables in the database."""
@@ -176,38 +176,38 @@ class Settings(BaseSettings):
     user_agent: str = "langflow"
     """User agent for the API calls."""
     backend_only: bool = False
-    """If set to True, Langflow will not serve the frontend."""
+    """If set to True, CentaurOps will not serve the frontend."""
 
     # Telemetry
     do_not_track: bool = False
-    """If set to True, Langflow will not track telemetry."""
+    """If set to True, CentaurOps will not track telemetry."""
     telemetry_base_url: str = "https://langflow.gateway.scarf.sh"
     transactions_storage_enabled: bool = True
-    """If set to True, Langflow will track transactions between flows."""
+    """If set to True, CentaurOps will track transactions between flows."""
     vertex_builds_storage_enabled: bool = True
-    """If set to True, Langflow will keep track of each vertex builds (outputs) in the UI for any flow."""
+    """If set to True, CentaurOps will keep track of each vertex builds (outputs) in the UI for any flow."""
 
     # Config
     host: str = "127.0.0.1"
-    """The host on which Langflow will run."""
+    """The host on which CentaurOps will run."""
     port: int = 7860
-    """The port on which Langflow will run."""
+    """The port on which CentaurOps will run."""
     workers: int = 1
     """The number of workers to run."""
     log_level: str = "critical"
-    """The log level for Langflow."""
+    """The log level for CentaurOps."""
     log_file: str | None = "logs/langflow.log"
-    """The path to log file for Langflow."""
+    """The path to log file for CentaurOps."""
     alembic_log_file: str = "alembic/alembic.log"
     """The path to log file for Alembic for SQLAlchemy."""
     frontend_path: str | None = None
     """The path to the frontend directory containing build files. This is for development purposes only.."""
     open_browser: bool = False
-    """If set to True, Langflow will open the browser on startup."""
+    """If set to True, CentaurOps will open the browser on startup."""
     auto_saving: bool = True
-    """If set to True, Langflow will auto save flows."""
+    """If set to True, CentaurOps will auto save flows."""
     auto_saving_interval: int = 1000
-    """The interval in ms at which Langflow will auto save flows."""
+    """The interval in ms at which CentaurOps will auto save flows."""
     health_check_max_retries: int = 5
     """The maximum number of retries for the health check."""
     max_file_size_upload: int = 100
@@ -231,9 +231,9 @@ class Settings(BaseSettings):
 
     # MCP Server
     mcp_server_enabled: bool = True
-    """If set to False, Langflow will not enable the MCP server."""
+    """If set to False, CentaurOps will not enable the MCP server."""
     mcp_server_enable_progress_notifications: bool = False
-    """If set to False, Langflow will not send progress notifications in the MCP server."""
+    """If set to False, CentaurOps will not send progress notifications in the MCP server."""
 
     # Public Flow Settings
     public_flow_cleanup_interval: int = Field(default=3600, gt=600)
@@ -245,7 +245,7 @@ class Settings(BaseSettings):
     event_delivery: Literal["polling", "streaming", "direct"] = "streaming"
     """How to deliver build events to the frontend. Can be 'polling', 'streaming' or 'direct'."""
     lazy_load_components: bool = False
-    """If set to True, Langflow will only partially load components at startup and fully load them on demand.
+    """If set to True, CentaurOps will only partially load components at startup and fully load them on demand.
     This significantly reduces startup time but may cause a slight delay when a component is first used."""
 
     @field_validator("event_delivery", mode="before")
@@ -271,7 +271,7 @@ class Settings(BaseSettings):
     @classmethod
     def set_user_agent(cls, value):
         if not value:
-            value = "Langflow"
+            value = "CentaurOps"
         import os
 
         os.environ["USER_AGENT"] = value

@@ -1,5 +1,5 @@
 {
-  "name": "Langflow Dev Container",
+  "name": "CentaurOps Dev Container",
   "build": {
     "context": "..",
     "dockerfile": "Dockerfile"

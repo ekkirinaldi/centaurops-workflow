@@ -1,2 +1,2 @@
-//Langflow Desktop Base URL
+//CentaurOps Desktop Base URL
 export const baseURL = "";

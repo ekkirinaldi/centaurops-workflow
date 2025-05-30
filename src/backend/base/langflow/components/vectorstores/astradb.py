@@ -1097,7 +1097,7 @@ class AstraDBVectorStoreComponent(LCVectorStoreComponent):
         # Get the additional parameters
         additional_params = self.astradb_vectorstore_kwargs or {}
 
-        # Get Langflow version and platform information
+        # Get CentaurOps version and platform information
         __version__ = get_version_info()["version"]
         langflow_prefix = ""
         # if os.getenv("AWS_EXECUTION_ENV") == "AWS_ECS_FARGATE":  # TODO: More precise way of detecting
