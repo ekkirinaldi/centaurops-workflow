@@ -44,13 +44,13 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 COPY ./src /app/src
 
-COPY src/frontend /tmp/src/frontend
-WORKDIR /tmp/src/frontend
+# Frontend build stage
+WORKDIR /app/src/frontend
 RUN --mount=type=cache,target=/root/.npm \
     npm ci \
-    && NODE_OPTIONS="--max-old-space-size=8192" npm run build \
-    && cp -r build /app/src/backend/langflow/frontend \
-    && rm -rf /tmp/src/frontend
+    && NODE_OPTIONS="--max-old-space-size=4096" npm run build \
+    && mkdir -p /app/src/backend/langflow/frontend \
+    && cp -r build/* /app/src/backend/langflow/frontend/
 
 WORKDIR /app
 COPY ./pyproject.toml /app/pyproject.toml
@@ -58,7 +58,8 @@ COPY ./uv.lock /app/uv.lock
 COPY ./README.md /app/README.md
 
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --no-editable --extra postgresql
+    uv sync --frozen --no-editable --extra postgresql \
+    && pip install --no-cache-dir -U pydantic==2.6.1 litellm==1.30.7
 
 ################################
 # RUNTIME
@@ -76,9 +77,12 @@ RUN apt-get update \
     && useradd user -u 1000 -g 0 --no-create-home --home-dir /app/data
 
 COPY --from=builder --chown=1000 /app/.venv /app/.venv
+COPY --from=builder --chown=1000 /app/src/backend/langflow/frontend /app/src/backend/langflow/frontend
 
 # Place executables in the environment at the front of the path
 ENV PATH="/app/.venv/bin:$PATH"
+# Suppress deprecation warnings
+ENV PYTHONWARNINGS="ignore::DeprecationWarning"
 
 LABEL org.opencontainers.image.title=langflow
 LABEL org.opencontainers.image.authors=['Langflow']

@@ -1,6 +1,6 @@
 import AlertDropdown from "@/alerts/alertDropDown";
 import DataStaxLogo from "@/assets/DataStaxLogo.svg?react";
-import LangflowLogo from "@/assets/LangflowLogo.svg?react";
+import LangflowLogo from "@/assets/CentaurOpsLogo.svg?react";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import ShadTooltip from "@/components/common/shadTooltipComponent";
 import { Button } from "@/components/ui/button";
@@ -89,14 +89,6 @@ export default function AppHeader(): JSX.Element {
         className={`relative left-3 z-30 flex items-center gap-3`}
         data-testid="header_right_section_wrapper"
       >
-        <>
-          <Button
-            unstyled
-            className="hidden items-center whitespace-nowrap pr-2 lg:inline"
-          >
-            <CustomLangflowCounts />
-          </Button>
-        </>
         <AlertDropdown
           notificationRef={notificationContentRef}
           onClose={() => setActiveState(null)}

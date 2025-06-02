@@ -1,4 +1,4 @@
-import LangflowLogo from "@/assets/LangflowLogo.svg?react";
+import LangflowLogo from "@/assets/CentaurOpsLogo.svg?react";
 import { TextEffectPerChar } from "@/components/ui/textAnimation";
 import CustomChatInput from "@/customization/components/custom-chat-input";
 import { ENABLE_IMAGE_ON_PLAYGROUND } from "@/customization/feature-flags";

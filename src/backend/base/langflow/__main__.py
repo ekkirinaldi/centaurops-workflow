@@ -33,6 +33,7 @@ from langflow.services.settings.constants import DEFAULT_SUPERUSER
 from langflow.services.utils import initialize_services
 from langflow.utils.version import fetch_latest_version, get_version_info
 from langflow.utils.version import is_pre_release as langflow_is_pre_release
+from langflow.utils.warnings import *  # Import warning configurations
 
 console = Console()
 
@@ -400,24 +401,10 @@ def print_banner(host: str, port: int, protocol: str) -> None:
     )
 
     title = f"[bold]Welcome to {styled_package_name}[/bold]\n"
-    info_text = (
-        ":star2: GitHub: Star for updates → https://github.com/langflow-ai/langflow\n"
-        ":speech_balloon: Discord: Join for support → https://discord.com/invite/EqksyE2EX9"
-    )
-    telemetry_text = (
-        (
-            "We collect anonymous usage data to improve CentaurOps.\n"
-            "To opt out, set: [bold]DO_NOT_TRACK=true[/bold] in your environment."
-        )
-        if os.getenv("DO_NOT_TRACK", os.getenv("LANGFLOW_DO_NOT_TRACK", "False")).lower() != "true"
-        else (
-            "We are [bold]not[/bold] collecting anonymous usage data to improve CentaurOps.\n"
-            "To contribute, set: [bold]DO_NOT_TRACK=false[/bold] in your environment."
-        )
-    )
+
     access_link = f"[bold]🟢 Open CentaurOps →[/bold] [link={protocol}://{host}:{port}]{protocol}://{host}:{port}[/link]"
 
-    message = f"{title}\n{info_text}\n\n{access_link}"
+    message = f"{title}\n{access_link}"
 
     console.print(Panel.fit(message, border_style="#7528FC", padding=(1, 2)))
 

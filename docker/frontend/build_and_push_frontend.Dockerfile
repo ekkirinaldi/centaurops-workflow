@@ -7,9 +7,22 @@
 
 # 1. force platform to the current architecture to increase build speed time on multi-platform builds
 FROM --platform=$BUILDPLATFORM node:lts-bookworm-slim AS builder-base
-COPY src/frontend /frontend
 
-RUN cd /frontend && npm install && npm run build
+# Set working directory
+WORKDIR /frontend
+
+# Copy package files first to leverage Docker cache for dependencies
+COPY src/frontend/package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the frontend code
+COPY src/frontend/ ./
+
+# Build the frontend with increased memory limit
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+RUN npm run build
 
 ################################
 # RUNTIME
