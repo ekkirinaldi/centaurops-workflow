@@ -8,9 +8,9 @@ New components are added as objects of the [Component](https://github.com/langfl
 
 Dependencies are added to the [pyproject.toml](https://github.com/langflow-ai/langflow/blob/main/pyproject.toml#L148) file.
 
-## Contribute an example component to Langflow
+## Contribute an example component to CentaurOps
 
-Anyone can contribute an example component. For example, to create a new **Data** component called **DataFrame processor**, follow these steps to contribute it to Langflow.
+Anyone can contribute an example component. For example, to create a new **Data** component called **DataFrame processor**, follow these steps to contribute it to CentaurOps.
 
 1. Create a Python file called `dataframe_processor.py`.
 2. Write your processor as an object of the [Component](https://github.com/langflow-ai/langflow/blob/main/src/backend/base/langflow/custom/custom_component/component.py) class. You'll create a new class, `DataFrameProcessor`, that will inherit from `Component` and override the base class's methods.
@@ -49,7 +49,7 @@ class DataFrameProcessor(Component):
    * `priority`: An optional integer to control display order. Lower numbers appear first.
    * `name`: An optional internal identifier that defaults to class name.
 
-4. Define the component's interface by specifying its inputs, outputs, and the method that will process them. The method name must match the `method` field in your outputs list, as this is how Langflow knows which method to call to generate each output.
+4. Define the component's interface by specifying its inputs, outputs, and the method that will process them. The method name must match the `method` field in your outputs list, as this is how CentaurOps knows which method to call to generate each output.
 This example creates a minimal custom component skeleton.
 For more information on creating your custom component, see [Create custom Python components](/components-custom-components).
 ```python
@@ -80,13 +80,13 @@ class DataFrameProcessor(Component):
 This example adds a **Data** component, so add it to the `/data` directory.
 
 6. Add the component dependency to `src > backend > base > langflow > components > data > __init__.py` as `from .DataFrameProcessor import DataFrameProcessor`.
-You can view the [/data/__init__.py](https://github.com/langflow-ai/langflow/blob/dev/src/backend/base/langflow/components/data/__init__.py) in the Langflow repository.
+You can view the [/data/__init__.py](https://github.com/langflow-ai/langflow/blob/dev/src/backend/base/langflow/components/data/__init__.py) in the CentaurOps repository.
 
 7. Add any new dependencies to the [pyproject.toml](https://github.com/langflow-ai/langflow/blob/main/pyproject.toml#L20) file.
 
 8. Submit documentation for your component. For this example component, you would submit documentation to the [Data components page](https://github.com/langflow-ai/langflow/blob/main/docs/docs/Components/components-data.md).
 
-9. Submit your changes as a pull request. The Langflow team will review, suggest changes, and add your component to Langflow.
+9. Submit your changes as a pull request. The CentaurOps team will review, suggest changes, and add your component to CentaurOps.
 
 ## Best practices for modifying components
 

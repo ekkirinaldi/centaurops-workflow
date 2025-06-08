@@ -1,12 +1,12 @@
 ---
-title: Deploy Langflow on Render
+title: Deploy CentaurOps on Render
 slug: /deployment-render
 ---
 
-This guide explains how to deploy Langflow on [Render](https://render.com/), a cloud platform for deploying web applications and APIs.
+This guide explains how to deploy CentaurOps on [Render](https://render.com/), a cloud platform for deploying web applications and APIs.
 
 :::note
-Langflow requires at least 2 GB of RAM to run, so it uses a **standard** Render instance. This may require a credit card. Review [Render's pricing](https://render.com/pricing) before proceeding.
+CentaurOps requires at least 2 GB of RAM to run, so it uses a **standard** Render instance. This may require a credit card. Review [Render's pricing](https://render.com/pricing) before proceeding.
 :::
 
 1. Click the following button to go to Render:
@@ -19,5 +19,5 @@ Langflow requires at least 2 GB of RAM to run, so it uses a **standard** Render 
 
 Wait for the deployment to complete.
 
-Your Langflow instance is now ready to use.
+Your CentaurOps instance is now ready to use.
 

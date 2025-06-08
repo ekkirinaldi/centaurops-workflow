@@ -3,19 +3,19 @@ title: Memory management options
 slug: /memory
 ---
 
-Langflow provides flexible memory management options for storage and retrieval.
+CentaurOps provides flexible memory management options for storage and retrieval.
 
-This page details the following memory configuration options in Langflow.
+This page details the following memory configuration options in CentaurOps.
 
-- [Use local Langflow database tables](#local-langflow-database-tables)
+- [Use local CentaurOps database tables](#local-langflow-database-tables)
 - [Store messages in local memory](#store-messages-in-local-memory)
 - [Configure external memory](#configure-external-memory)
 - [Configure the external database connection](#configure-the-external-database-connection)
 - [Configure cache memory](#configure-cache-memory)
 
-## Local Langflow database tables
+## Local CentaurOps database tables
 
-The default storage option in Langflow is a [SQLite](https://www.sqlite.org/) database stored in your system's cache directory:
+The default storage option in CentaurOps is a [SQLite](https://www.sqlite.org/) database stored in your system's cache directory:
 
 - Linux/WSL: `~/.cache/langflow/langflow.db`
 - macOS: `/Users/<username>/Library/Caches/langflow/langflow.db`
@@ -43,9 +43,9 @@ For more information, see the database models in the [source code](https://githu
 
 ## Store messages in local memory
 
-To store messages in local Langflow memory, add a [Message store](/components-helpers#message-store) component to your flow.
+To store messages in local CentaurOps memory, add a [Message store](/components-helpers#message-store) component to your flow.
 
-To retrieve messages from local Langflow memory, add a [Message history](/components-helpers#message-history) component to your flow.
+To retrieve messages from local CentaurOps memory, add a [Message history](/components-helpers#message-history) component to your flow.
 
 For an example of using local chat memory, see the [Memory chatbot](/memory-chatbot) starter flow.
 
@@ -53,11 +53,11 @@ To store or retrieve chat messages from external memory, connect the **External 
 
 ![Sample Flow storing Chat Memory in AstraDB](/img/astra_db_chat_memory_rounded.png)
 
-If external storage is connected to a memory helper component, no chat messages are stored in local Langflow memory.
+If external storage is connected to a memory helper component, no chat messages are stored in local CentaurOps memory.
 
 ## Configure external memory
 
-To replace the default Langflow SQLite database with another database, modify the `LANGFLOW_DATABASE_URL` and start Langflow with this value.
+To replace the default CentaurOps SQLite database with another database, modify the `LANGFLOW_DATABASE_URL` and start CentaurOps with this value.
 
 ```
 LANGFLOW_DATABASE_URL=postgresql://user:password@localhost:5432/langflow
@@ -84,7 +84,7 @@ LANGFLOW_DB_CONNECT_TIMEOUT=20
 
 ## Configure cache memory
 
-The default Langflow caching behavior is an asynchronous, in-memory cache.
+The default CentaurOps caching behavior is an asynchronous, in-memory cache.
 ```
 LANGFLOW_LANGCHAIN_CACHE=InMemoryCache
 LANGFLOW_CACHE_TYPE=Async

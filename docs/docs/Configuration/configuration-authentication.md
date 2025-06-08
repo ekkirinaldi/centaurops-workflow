@@ -6,30 +6,30 @@ slug: /configuration-authentication
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This guide covers Langflow's authentication system and API key management, including how to secure your deployment and manage access to flows and components.
+This guide covers CentaurOps's authentication system and API key management, including how to secure your deployment and manage access to flows and components.
 
 :::warning
-Never expose Langflow ports directly to the internet without proper security measures.
+Never expose CentaurOps ports directly to the internet without proper security measures.
 
-Disable `LANGFLOW_AUTO_LOGIN`, use a secure `LANGFLOW_SECRET_KEY`, and ensure your Langflow server is behind a reverse proxy with authentication enabled.
-For more information, see [Start a secure Langflow server with authentication](#start-a-secure-langflow-server-with-authentication).
+Disable `LANGFLOW_AUTO_LOGIN`, use a secure `LANGFLOW_SECRET_KEY`, and ensure your CentaurOps server is behind a reverse proxy with authentication enabled.
+For more information, see [Start a secure CentaurOps server with authentication](#start-a-secure-langflow-server-with-authentication).
 :::
 
 ## Authentication configuration values
 
 The section describes the available authentication configuration variables.
 
-The Langflow project includes a [`.env.example`](https://github.com/langflow-ai/langflow/blob/main/.env.example) file to help you get started.
+The CentaurOps project includes a [`.env.example`](https://github.com/langflow-ai/langflow/blob/main/.env.example) file to help you get started.
 You can copy the contents of this file into your own `.env` file and replace the example values with your own preferred settings.
 
 ### LANGFLOW_AUTO_LOGIN
 
-When `True`, Langflow automatically logs users in with username `langflow` and password `langflow` without requiring user authentication.
+When `True`, CentaurOps automatically logs users in with username `langflow` and password `langflow` without requiring user authentication.
 To disable automatic login and enforce user authentication, set this value to `False` in your `.env` file.
 By default, this variable is set to `True`.
 
-Langflow **does not** allow users to have simultaneous or shared access to flows.
-If `AUTO_LOGIN` is enabled and user management is disabled (`LANGFLOW_NEW_USER_IS_ACTIVE=true`), users can access the same environment, but it is not password protected. If two users access the same flow, Langflow saves only the work of the last user to save.
+CentaurOps **does not** allow users to have simultaneous or shared access to flows.
+If `AUTO_LOGIN` is enabled and user management is disabled (`LANGFLOW_NEW_USER_IS_ACTIVE=true`), users can access the same environment, but it is not password protected. If two users access the same flow, CentaurOps saves only the work of the last user to save.
 
 ```bash
 LANGFLOW_AUTO_LOGIN=True
@@ -48,14 +48,14 @@ LANGFLOW_SUPERUSER_PASSWORD=securepassword
 ### LANGFLOW_SECRET_KEY
 
 This environment variable holds a secret key used for encrypting sensitive data like API keys.
-Langflow uses the [Fernet](https://pypi.org/project/cryptography/) library for secret key encryption.
+CentaurOps uses the [Fernet](https://pypi.org/project/cryptography/) library for secret key encryption.
 
 ```text
 LANGFLOW_SECRET_KEY=dBuuuB_FHLvU8T9eUNlxQF9ppqRxwWpXXQ42kM2_fb
 ```
 
 :::warning
-If no secret key is provided, Langflow automatically generates one. This is not recommended for production environments, especially in multi-instance deployments like Kubernetes, where auto-generated keys can't decrypt data encrypted by other instances.
+If no secret key is provided, CentaurOps automatically generates one. This is not recommended for production environments, especially in multi-instance deployments like Kubernetes, where auto-generated keys can't decrypt data encrypted by other instances.
 :::
 
 To generate a `LANGFLOW_SECRET_KEY`, follow these steps:
@@ -104,16 +104,16 @@ By default, this variable is set to `False`.
 LANGFLOW_NEW_USER_IS_ACTIVE=False
 ```
 
-## Start a secure Langflow server with authentication
+## Start a secure CentaurOps server with authentication
 
-Start a secure Langflow server with authentication enabled and secret key encryption using the variables described in [Authentication configuration values](/configuration-authentication#authentication-configuration-values).
+Start a secure CentaurOps server with authentication enabled and secret key encryption using the variables described in [Authentication configuration values](/configuration-authentication#authentication-configuration-values).
 
 Once you are logged in as a superuser, create a new user on your server.
 
-### Start the Langflow server
+### Start the CentaurOps server
 
 1. Create a `.env` file and populate it with values for a secure server.
-This server creates a superuser account, requires users to log in before using Langflow, and encrypts secrets with `LANGFLOW_SECRET_KEY`, which is added in the next step.
+This server creates a superuser account, requires users to log in before using CentaurOps, and encrypts secrets with `LANGFLOW_SECRET_KEY`, which is added in the next step.
 Create a `.env` file with the following configuration:
 
 ```text
@@ -158,7 +158,7 @@ python -c "from secrets import token_urlsafe; print(f'LANGFLOW_SECRET_KEY={token
 
 3. Paste your `LANGFLOW_SECRET_KEY` into the `.env` file.
 
-4. Start Langflow with the configuration from your `.env` file.
+4. Start CentaurOps with the configuration from your `.env` file.
 
 ```text
 uv run langflow run --env-file .env
@@ -182,7 +182,7 @@ Click your user profile image, and then click **Admin Page**.
 
 As a superuser, you can create users, set permissions, reset passwords, and delete accounts.
 
-4. To create a user, in the Langflow UI, click **New User**, and then complete the following fields:
+4. To create a user, in the CentaurOps UI, click **New User**, and then complete the following fields:
 * **Username**
 * **Password** and **Confirm Password**
 * Select **Active** and deselect **Superuser** for the new user.
@@ -191,7 +191,7 @@ A **Superuser** has full administrative privileges.
 
 5. To complete user creation, click **Save**.
 Your new user appears in the **Admin Page**.
-6. To confirm your new user's functionality, log out of Langflow, and log back in with your new user's credentials.
+6. To confirm your new user's functionality, log out of CentaurOps, and log back in with your new user's credentials.
 Attempt to access the `/admin` page. You should be redirected to the `/flows` page, because the new user is not a superuser.
 
-You have started a secure Langflow server with authentication enabled and secret key encryption.
+You have started a secure CentaurOps server with authentication enabled and secret key encryption.

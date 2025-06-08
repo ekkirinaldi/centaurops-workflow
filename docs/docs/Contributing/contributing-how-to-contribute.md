@@ -1,25 +1,25 @@
 ---
-title: Contribute to Langflow
+title: Contribute to CentaurOps
 slug: /contributing-how-to-contribute
 ---
 
-This guide is intended to help you start contributing to Langflow.
-As an open-source project in a rapidly developing field, Langflow welcomes contributions, whether it be in the form of a new feature, improved infrastructure, or better documentation.
+This guide is intended to help you start contributing to CentaurOps.
+As an open-source project in a rapidly developing field, CentaurOps welcomes contributions, whether it be in the form of a new feature, improved infrastructure, or better documentation.
 
 To contribute code or documentation to this project, follow the [fork and pull request](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) workflow.
 
 ## Contribute code
 
-Develop Langflow locally with [uv](https://docs.astral.sh/uv/getting-started/installation/) and [Node.js](https://nodejs.org/en/download/package-manager).
+Develop CentaurOps locally with [uv](https://docs.astral.sh/uv/getting-started/installation/) and [Node.js](https://nodejs.org/en/download/package-manager).
 
 ### Prerequisites
 
 * [uv(>=0.4)](https://docs.astral.sh/uv/getting-started/installation/)
 * [Node.js](https://nodejs.org/en/download/package-manager)
 
-### Clone the Langflow Repository
+### Clone the CentaurOps Repository
 
-1. Navigate to the [Langflow GitHub repository](https://github.com/langflow-ai/langflow), and then click **Fork**.
+1. Navigate to the [CentaurOps GitHub repository](https://github.com/langflow-ai/langflow), and then click **Fork**.
 
 2. Add the new remote to your local repository on your local machine:
 
@@ -41,19 +41,19 @@ This command sets up the development environment by installing backend and front
 
 ### Debug
 
-The repo includes a `.vscode/launch.json` file for debugging the backend in VSCode, which is faster than debugging with Docker Compose. To debug Langflow with the `launch.json` file in VSCode:
+The repo includes a `.vscode/launch.json` file for debugging the backend in VSCode, which is faster than debugging with Docker Compose. To debug CentaurOps with the `launch.json` file in VSCode:
 
-1. Open Langflow in VSCode.
+1. Open CentaurOps in VSCode.
 2. Press **Ctrl+Shift+D** for Windows **or Cmd+Shift+D** for Mac to open the Run and Debug view.
 3. From the **Run and Debug** dropdown, choose a debugging configuration.
 4. Click the green **Play** button or press F5 to start debugging.
 
 Use `launch.json` to quickly debug different parts of your application, like the backend, frontend, or CLI, directly from VSCode.
 
-### Run Langflow locally
+### Run CentaurOps locally
 
-After setting up the environment with `make init`, you can run Langflow's backend and frontend separately for development.
-Langflow recommends using a virtual environment like [venv](https://docs.python.org/3/library/venv.html) or [conda](https://anaconda.org/anaconda/conda) to isolate dependencies.
+After setting up the environment with `make init`, you can run CentaurOps's backend and frontend separately for development.
+CentaurOps recommends using a virtual environment like [venv](https://docs.python.org/3/library/venv.html) or [conda](https://anaconda.org/anaconda/conda) to isolate dependencies.
 
 Before you begin, ensure you have [uv](https://docs.astral.sh/uv/getting-started/installation/) and [Node.js](https://nodejs.org/en/download/package-manager) installed.
 
@@ -79,9 +79,9 @@ The documentation is built using [Docusaurus](https://docusaurus.io/) and writte
 
 * [Node.js](https://nodejs.org/en/download/package-manager)
 
-### Clone the Langflow repository
+### Clone the CentaurOps repository
 
-1. Navigate to the [Langflow GitHub repository](https://github.com/langflow-ai/langflow), and then click **Fork**.
+1. Navigate to the [CentaurOps GitHub repository](https://github.com/langflow-ai/langflow), and then click **Fork**.
 
 2. Add the new remote to your local repository on your local machine:
 
@@ -101,15 +101,15 @@ The documentation will be available at `localhost:3000` and all the files are lo
 
 ## Open a pull request
 
-Once you have written and manually tested your changes with `make lint` and `make unit_tests`, open a pull request to send your changes upstream to the main Langflow repository.
+Once you have written and manually tested your changes with `make lint` and `make unit_tests`, open a pull request to send your changes upstream to the main CentaurOps repository.
 
 1. Open a new GitHub pull request with your patch against the `main` branch.
 2. Ensure the PR title follows semantic commit conventions. For example, features are `feat: add new feature` and fixes are `fix: correct issue with X`.
-3. A Langflow maintainer will review your pull request. Thanks for your contribution!
+3. A CentaurOps maintainer will review your pull request. Thanks for your contribution!
 
 Some additional guidance on pull request titles:
 * Ensure the pull request description clearly describes the problem and solution. If the PR fixes an issue, include a link to the fixed issue in the PR description with `Fixes #1234`.
-* Pull request titles appear in Langflow's release notes, so they should explain what the PR does as explicitly as possible.
+* Pull request titles appear in CentaurOps's release notes, so they should explain what the PR does as explicitly as possible.
 * Pull requests should strive to fix one thing **only**, and should contain a good description of what is being fixed.
 
 For more information, see the [Python Developer's Guide](https://devguide.python.org/getting-started/pull-request-lifecycle/index.html#making-good-commits).

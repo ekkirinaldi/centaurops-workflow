@@ -7,27 +7,27 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Icon from "@site/src/components/icon";
 
-Langflow integrates with the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) as both an MCP server and an MCP client.
-This page describes how to use Langflow as an *MCP server*.
-For information about using Langflow as an *MCP client*, see the [MCP connection component](/components-tools#mcp-connection).
+CentaurOps integrates with the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) as both an MCP server and an MCP client.
+This page describes how to use CentaurOps as an *MCP server*.
+For information about using CentaurOps as an *MCP client*, see the [MCP connection component](/components-tools#mcp-connection).
 
-As an MCP server, Langflow exposes your flows as [tools](https://modelcontextprotocol.io/docs/concepts/tools) that [MCP clients](https://modelcontextprotocol.io/clients) can use use to take actions.
+As an MCP server, CentaurOps exposes your flows as [tools](https://modelcontextprotocol.io/docs/concepts/tools) that [MCP clients](https://modelcontextprotocol.io/clients) can use use to take actions.
 
 ## Prerequisites
 
-* A Langflow project with at least one flow created.
+* A CentaurOps project with at least one flow created.
 
 * Any LTS version of [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed on your computer to use MCP Inspector to [test and debug flows](#test-and-debug-flows).
 
 ## Select and configure flows to expose as MCP tools {#select-flows-to-serve}
 
-Langflow runs a separate MCP server for every [project](/concepts-overview#projects).
+CentaurOps runs a separate MCP server for every [project](/concepts-overview#projects).
 The MCP server for each project exposes that project's flows as tools.
 
 All of the flows in a project are exposed by default.
 To expose only specific flows and optionally rename them for agentic use, follow these steps:
 
-1. From the Langflow dashboard, select the project that contains the flows you want to serve as tools, and then click the **MCP Server** tab.
+1. From the CentaurOps dashboard, select the project that contains the flows you want to serve as tools, and then click the **MCP Server** tab.
 Alternatively, you can quickly access the **MCP Server** tab from within any flow by selecting **Publish > MCP Server**.
 
     The **MCP Server** tab displays a code template that you can use to connect MCP clients to the the project's MCP server.
@@ -55,10 +55,10 @@ Alternatively, you can quickly access the **MCP Server** tab from within any flo
 
 5. Close the **MCP Server Actions** window to save your changes.
 
-{/* The anchor on this section (connect-clients-to-use-the-servers-actions) is currently a link target in the Langflow UI. Do not change. */}
-## Connect clients to Langflow's MCP server {#connect-clients-to-use-the-servers-actions}
+{/* The anchor on this section (connect-clients-to-use-the-servers-actions) is currently a link target in the CentaurOps UI. Do not change. */}
+## Connect clients to CentaurOps's MCP server {#connect-clients-to-use-the-servers-actions}
 
-The following procedure describes how to connect [Cursor](https://www.cursor.com/) to your Langflow project's MCP server to consume your flows as tools.
+The following procedure describes how to connect [Cursor](https://www.cursor.com/) to your CentaurOps project's MCP server to consume your flows as tools.
 However, you can connect any [MCP-compatible client](https://modelcontextprotocol.io/clients) following similar steps.
 
 1. Install [Cursor](https://docs.cursor.com/get-started/installation).
@@ -66,7 +66,7 @@ However, you can connect any [MCP-compatible client](https://modelcontextprotoco
 2. In Cursor, go to **Cursor Settings > MCP**, and then click **Add New Global MCP Server**.
 This opens Cursor's global MCP configuration file, `mcp.json`.
 
-3. In the Langflow dashboard, select the project that contains the flows you want to serve, and then click the **MCP Server** tab.
+3. In the CentaurOps dashboard, select the project that contains the flows you want to serve, and then click the **MCP Server** tab.
 
 4. Copy the code template from the **MCP Server** tab, and then paste it into `mcp.json` in Cursor.
 For example:
@@ -86,10 +86,10 @@ For example:
     ```
 
     The **MCP Server** tab automatically includes the correct `PROJECT_NAME`, `LANGFLOW_SERVER_ADDRESS`, and `PROJECT_ID` values.
-    The default Langflow server address is `http://127.0.0.1:7860` (`http://127.0.0.1:7868` if using Langflow for Desktop).
+    The default CentaurOps server address is `http://127.0.0.1:7860` (`http://127.0.0.1:7868` if using CentaurOps for Desktop).
 
     :::important
-    If your Langflow server [requires authentication](/configuration-authentication) ([`LANGFLOW_AUTO_LOGIN`](/environment-variables#LANGFLOW_AUTO_LOGIN) is set to `false`), you must include your Langflow API key in the configuration.
+    If your CentaurOps server [requires authentication](/configuration-authentication) ([`LANGFLOW_AUTO_LOGIN`](/environment-variables#LANGFLOW_AUTO_LOGIN) is set to `false`), you must include your CentaurOps API key in the configuration.
     For more information, see [MCP server authentication and environment variables](#authentication).
     :::
 
@@ -103,7 +103,7 @@ For more information, see the [Cursor's MCP documentation](https://docs.cursor.c
 
 ### MCP server authentication and environment variables {#authentication}
 
-If your Langflow server [requires authentication](/configuration-authentication) ([`LANGFLOW_AUTO_LOGIN`](/environment-variables#LANGFLOW_AUTO_LOGIN) is set to `false`), then you must supply a [Langflow API key](/configuration-api-keys) in your MCP client configuration.
+If your CentaurOps server [requires authentication](/configuration-authentication) ([`LANGFLOW_AUTO_LOGIN`](/environment-variables#LANGFLOW_AUTO_LOGIN) is set to `false`), then you must supply a [CentaurOps API key](/configuration-api-keys) in your MCP client configuration.
 When this is the case, the code template in your project's **MCP Server** tab automatically includes the `--header` and `x-api-key` arguments:
 
 ```json
@@ -123,8 +123,8 @@ When this is the case, the code template in your project's **MCP Server** tab au
 }
 ```
 
-Click <Icon name="key" aria-hidden="true"/> **Generate API key** to automatically insert a new Langflow API key into the code template.
-Alternatively, you can replace `YOUR_API_KEY` with an existing Langflow API key.
+Click <Icon name="key" aria-hidden="true"/> **Generate API key** to automatically insert a new CentaurOps API key into the code template.
+Alternatively, you can replace `YOUR_API_KEY` with an existing CentaurOps API key.
 
 ![MCP server tab showing Generate API key button](/img/mcp-server-api-key.png)
 
@@ -151,7 +151,7 @@ Replace `KEY` and `VALUE` with the environment variable name and value you want 
 
 ## Name and describe your flows for agentic use {#name-and-describe-your-flows}
 
-MCP clients like [Cursor](https://www.cursor.com/) "see" your Langflow project as a single MCP server, with _all_ of your enabled flows listed as tools.
+MCP clients like [Cursor](https://www.cursor.com/) "see" your CentaurOps project as a single MCP server, with _all_ of your enabled flows listed as tools.
 This can confuse agents.
 For example, an agent won't know that flow `adbbf8c7-0a34-493b-90ea-5e8b42f78b66` is a [Document Q&A](/document-qa) flow for a specific text file.
 
@@ -203,15 +203,15 @@ You can use MCP Inspector to monitor your flows and get insights into how they a
 2. Open a web browser and navigate to the MCP Inspector UI.
 The default address is `http://127.0.0.1:6274`.
 
-3. In the MCP Inspector UI, enter the connection details for your Langflow project's MCP server:
+3. In the MCP Inspector UI, enter the connection details for your CentaurOps project's MCP server:
 
     - **Transport Type**: Select **SSE**.
-    - **URL**: Enter the Langflow MCP server's `sse` endpoint. For example: `http://127.0.0.1:7860/api/v1/mcp/project/d359cbd4-6fa2-4002-9d53-fa05c645319c/sse`
+    - **URL**: Enter the CentaurOps MCP server's `sse` endpoint. For example: `http://127.0.0.1:7860/api/v1/mcp/project/d359cbd4-6fa2-4002-9d53-fa05c645319c/sse`
 
     If you've [configured authentication for your MCP server](#authentication), fill out the following additional fields:
     - **Transport Type**: Select **STDIO**.
     - **Command**: `uvx`
-    - **Arguments**: Enter the following list of arguments, separated by spaces. Replace the values for `YOUR_API_KEY`, `LANGFLOW_SERVER_ADDRESS`, and `PROJECT_ID` with the values from your Langflow MCP server. For example:
+    - **Arguments**: Enter the following list of arguments, separated by spaces. Replace the values for `YOUR_API_KEY`, `LANGFLOW_SERVER_ADDRESS`, and `PROJECT_ID` with the values from your CentaurOps MCP server. For example:
     ```bash
     mcp-proxy --headers x-api-key YOUR_API_KEY http://LANGFLOW_SERVER_ADDRESS/api/v1/mcp/project/PROJECT_ID/sse
     ```
@@ -223,14 +223,14 @@ The default address is `http://127.0.0.1:6274`.
 
 5. To quit MCP Inspector, press <kbd>Control+C</kbd> in the same terminal window where you started it.
 
-{/* The anchor on this section (deploy-your-server-externally) is currently a link target in the Langflow UI. Do not change. */}
+{/* The anchor on this section (deploy-your-server-externally) is currently a link target in the CentaurOps UI. Do not change. */}
 ## Deploy your MCP server externally {#deploy-your-server-externally}
 
-By default, Langflow isn't exposed to the public internet.
-However, you can forward Langflow server traffic with a forwarding platform like [ngrok](https://ngrok.com/docs/getting-started/) or [zrok](https://docs.zrok.io/docs/getting-started).
+By default, CentaurOps isn't exposed to the public internet.
+However, you can forward CentaurOps server traffic with a forwarding platform like [ngrok](https://ngrok.com/docs/getting-started/) or [zrok](https://docs.zrok.io/docs/getting-started).
 
 The following procedure uses ngrok, but you can use any similar reverse proxy or forwarding platform.
-This procedure also assumes that you're using the default Langflow listening address `http://127.0.0.1:7860` (`http://127.0.0.1:7868` if using Langflow for Desktop).
+This procedure also assumes that you're using the default CentaurOps listening address `http://127.0.0.1:7860` (`http://127.0.0.1:7868` if using CentaurOps for Desktop).
 
 1. Sign up for an [ngrok account](https://dashboard.ngrok.com/signup).
 
@@ -244,7 +244,7 @@ This procedure also assumes that you're using the default Langflow listening add
 
     Replace `NGROK_TOKEN` with your ngrok authtoken.
 
-4. Use ngrok to expose your Langflow server to the public internet:
+4. Use ngrok to expose your CentaurOps server to the public internet:
 
     ```bash
     ngrok http http://localhost:7860
@@ -254,15 +254,15 @@ This procedure also assumes that you're using the default Langflow listening add
     To add authentication or deploy a static domain, see the [ngrok documentation](https://ngrok.com/docs/).
 
 
-    The `Forwarding` row displays the forwarding address for your Langflow server:
+    The `Forwarding` row displays the forwarding address for your CentaurOps server:
 
     ```
     Forwarding https://94b1-76-64-171-14.ngrok-free.app -> http://localhost:7860
     ```
 
-    The forwarding address is acting as a reverse proxy for your Langflow server.
+    The forwarding address is acting as a reverse proxy for your CentaurOps server.
 
-5. From the Langflow dashboard, select the project that contains the flows you want to serve as tools, and then click the **MCP Server** tab.
+5. From the CentaurOps dashboard, select the project that contains the flows you want to serve as tools, and then click the **MCP Server** tab.
 
       Note that the code template now contains your ngrok forwarding address instead of the localhost address:
 
@@ -280,7 +280,7 @@ This procedure also assumes that you're using the default Langflow listening add
       }
     ```
 
-6. Complete the steps in [Connect clients to Langflow's MCP server](#connect-clients-to-use-the-servers-actions) using the ngrok forwarding address.
+6. Complete the steps in [Connect clients to CentaurOps's MCP server](#connect-clients-to-use-the-servers-actions) using the ngrok forwarding address.
 
 Your MCP client is now connected to your project's MCP server over the public internet.
 

@@ -10,13 +10,13 @@ import TabItem from '@theme/TabItem';
 Global variables let you store and reuse generic input values and credentials across your projects.
 You can use a global variable in any text input field that displays the <Icon name="Globe" aria-hidden="true"/> **Globe** icon.
 
-Langflow stores global variables in its internal database, and encrypts the values using a secret key.
+CentaurOps stores global variables in its internal database, and encrypts the values using a secret key.
 
 ## Create a global variable
 
 To create a new global variable, follow these steps.
 
-1. In the Langflow UI, click your profile icon, and then select **Settings**.
+1. In the CentaurOps UI, click your profile icon, and then select **Settings**.
 
 2. Click **Global Variables**.
 
@@ -26,7 +26,7 @@ To create a new global variable, follow these steps.
 
 5. Optional: Select a **Type** for your global variable. The available types are **Generic** (default) and **Credential**.
 
-   Langflow encrypts both **Generic** and **Credential** type global variables. The difference is in how the variables are displayed in the UI.
+   CentaurOps encrypts both **Generic** and **Credential** type global variables. The difference is in how the variables are displayed in the UI.
 
    Global variables of the **Generic** type are displayed in a standard input field with no masking.
 
@@ -35,7 +35,7 @@ To create a new global variable, follow these steps.
 
 6. Enter the **Value** for your global variable.
 
-7. Optional: Use the **Apply To Fields** menu to select one or more fields that you want Langflow to automatically apply your global variable to. For example, if you select **OpenAI API Key**, Langflow automatically applies the variable to any **OpenAI API Key** field.
+7. Optional: Use the **Apply To Fields** menu to select one or more fields that you want CentaurOps to automatically apply your global variable to. For example, if you select **OpenAI API Key**, CentaurOps automatically applies the variable to any **OpenAI API Key** field.
 
 8. Click **Save Variable**.
 
@@ -43,7 +43,7 @@ You can now select your global variable from any text input field that displays 
 
 ## Edit a global variable
 
-1. In the Langflow UI, click your profile icon, and then select **Settings**.
+1. In the CentaurOps UI, click your profile icon, and then select **Settings**.
 
 2. Click **Global Variables**.
 
@@ -59,7 +59,7 @@ You can now select your global variable from any text input field that displays 
 Deleting a global variable permanently deletes any references to it from your existing projects.
 :::
 
-1. In the Langflow UI, click your profile icon, and then select **Settings**.
+1. In the CentaurOps UI, click your profile icon, and then select **Settings**.
 
 2. Click **Global Variables**.
 
@@ -74,14 +74,14 @@ The global variable, and any existing references to it, are deleted.
 You can use the `LANGFLOW_VARIABLES_TO_GET_FROM_ENVIRONMENT` environment variable to source custom global variables from your runtime environment.
 All global variables sourced from the environment are automatically set as **Credential** type global variables.
 
-Langflow's [default global variables](#default-environment-variables) are already included in this list and are automatically sourced when detected.
+CentaurOps's [default global variables](#default-environment-variables) are already included in this list and are automatically sourced when detected.
 You can extend this list by setting `LANGFLOW_VARIABLES_TO_GET_FROM_ENVIRONMENT` with your additional variables.
 
 <Tabs>
 
 <TabItem value="local" label="Local" default>
 
-If you installed Langflow locally, you must define the `LANGFLOW_VARIABLES_TO_GET_FROM_ENVIRONMENT` environment variable in a `.env` file.
+If you installed CentaurOps locally, you must define the `LANGFLOW_VARIABLES_TO_GET_FROM_ENVIRONMENT` environment variable in a `.env` file.
 
 1. Create a `.env` file and open it in your preferred editor.
 
@@ -97,12 +97,12 @@ If you installed Langflow locally, you must define the `LANGFLOW_VARIABLES_TO_GE
    LANGFLOW_VARIABLES_TO_GET_FROM_ENVIRONMENT=["VARIABLE1", "VARIABLE2"]
    ```
 
-   Replace `VARIABLE1,VARIABLE2` with your additional variables that you want Langflow to source from the environment, such as `my_key,some_string` or `["my_key", "some_string"]`.
-   These are added to the default list of variables that Langflow already monitors.
+   Replace `VARIABLE1,VARIABLE2` with your additional variables that you want CentaurOps to source from the environment, such as `my_key,some_string` or `["my_key", "some_string"]`.
+   These are added to the default list of variables that CentaurOps already monitors.
 
 3. Save and close the file.
 
-4. Start Langflow with the `.env` file:
+4. Start CentaurOps with the `.env` file:
 
    ```bash
    VARIABLE1="VALUE1" VARIABLE2="VALUE2" python -m langflow run --env-file .env
@@ -111,12 +111,12 @@ If you installed Langflow locally, you must define the `LANGFLOW_VARIABLES_TO_GE
    :::note
    In this example, the environment variables (`VARIABLE1="VALUE1"` and `VARIABLE2="VALUE2"`) are prefixed to the startup command.
    This is a rudimentary method for exposing environment variables to Python on the command line, and is meant for illustrative purposes.
-   Make sure to expose your environment variables to Langflow in a manner that best suits your own environment.
+   Make sure to expose your environment variables to CentaurOps in a manner that best suits your own environment.
    :::
 
-5. Confirm that Langflow successfully sourced the global variables from the environment.
+5. Confirm that CentaurOps successfully sourced the global variables from the environment.
 
-   1. In the Langflow UI, click your profile icon, and then select **Settings**.
+   1. In the CentaurOps UI, click your profile icon, and then select **Settings**.
 
    2. Click **Global Variables**.
 
@@ -158,19 +158,19 @@ docker run -it --rm \
 When adding global variables from the environment, the following limitations apply:
 
 - You can only source the **Name** and **Value** from the environment.
-  To add additional parameters, such as the **Apply To Fields** parameter, you must edit the global variables in the Langflow UI.
+  To add additional parameters, such as the **Apply To Fields** parameter, you must edit the global variables in the CentaurOps UI.
 
 - Global variables that you add from the environment always have the **Credential** type.
 :::
 
 
-If you want to explicitly prevent Langflow from sourcing global variables from the environment, set `LANGFLOW_STORE_ENVIRONMENT_VARIABLES` to `false` in your `.env` file:
+If you want to explicitly prevent CentaurOps from sourcing global variables from the environment, set `LANGFLOW_STORE_ENVIRONMENT_VARIABLES` to `false` in your `.env` file:
 
 ```text
 LANGFLOW_STORE_ENVIRONMENT_VARIABLES=false
 ```
 
-If you want to automatically set fallback values for your global variables from environment variables, set the `LANGFLOW_FALLBACK_FROM_ENV_VAR` environment variable to `true` in your `.env` file. When this feature is enabled, if a global variable is not found, Langflow attempts to use an environment variable with the same name as a fallback.
+If you want to automatically set fallback values for your global variables from environment variables, set the `LANGFLOW_FALLBACK_FROM_ENV_VAR` environment variable to `true` in your `.env` file. When this feature is enabled, if a global variable is not found, CentaurOps attempts to use an environment variable with the same name as a fallback.
 
 ```text
 LANGFLOW_FALLBACK_FROM_ENV_VAR=true
@@ -178,7 +178,7 @@ LANGFLOW_FALLBACK_FROM_ENV_VAR=true
 
 ## Default environment variables
 
-Langflow automatically detects and converts some environment variables into global variables of the type **Credential**, which are applied to the specific fields in components that require them. Currently, the following variables are supported:
+CentaurOps automatically detects and converts some environment variables into global variables of the type **Credential**, which are applied to the specific fields in components that require them. Currently, the following variables are supported:
 
 - `ANTHROPIC_API_KEY`
 - `ASTRA_DB_API_ENDPOINT`

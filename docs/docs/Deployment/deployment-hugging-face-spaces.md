@@ -1,11 +1,11 @@
 ---
-title: Deploy Langflow on HuggingFace Spaces
+title: Deploy CentaurOps on HuggingFace Spaces
 slug: /deployment-hugging-face-spaces
 ---
 
-This guide explains how to deploy Langflow on [HuggingFace Spaces](https://huggingface.co/spaces/).
+This guide explains how to deploy CentaurOps on [HuggingFace Spaces](https://huggingface.co/spaces/).
 
-1. Go to the [Langflow Space](https://huggingface.co/spaces/Langflow/Langflow?duplicate=true).
+1. Go to the [CentaurOps Space](https://huggingface.co/spaces/CentaurOps/CentaurOps?duplicate=true).
 
 2. Click **Duplicate Space**. 
 3. In the configuration dialog, do the following:
@@ -17,5 +17,5 @@ This guide explains how to deploy Langflow on [HuggingFace Spaces](https://huggi
 
 Wait for the setup to complete. You'll be redirected to your new Space automatically.
 
-Your Langflow instance is now ready to use.
+Your CentaurOps instance is now ready to use.
 

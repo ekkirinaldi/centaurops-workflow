@@ -6,17 +6,17 @@ slug: /integrations-langfuse
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Integrate Langfuse with Langflow
+# Integrate Langfuse with CentaurOps
 
-[Langfuse](https://langfuse.com) ([GitHub](https://github.com/langfuse/langfuse)) is an open-source platform for LLM observability. It provides tracing and monitoring capabilities for AI applications, helping developers debug, analyze, and optimize their AI systems. Langfuse integrates with various tools and frameworks such as workflows builders like Langflow.
+[Langfuse](https://langfuse.com) ([GitHub](https://github.com/langfuse/langfuse)) is an open-source platform for LLM observability. It provides tracing and monitoring capabilities for AI applications, helping developers debug, analyze, and optimize their AI systems. Langfuse integrates with various tools and frameworks such as workflows builders like CentaurOps.
 
-This guide walks you through how to configure Langflow to collect [tracing](https://langfuse.com/docs/tracing) data about your flow executions and automatically send the data to Langfuse.
+This guide walks you through how to configure CentaurOps to collect [tracing](https://langfuse.com/docs/tracing) data about your flow executions and automatically send the data to Langfuse.
 
 <iframe width="760" height="415" src="https://www.youtube.com/embed/SA9gGbzwNGU?si=eDKvdtvhb3fJCSbl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Prerequisites
 
-- A project in Langflow with a runnable flow
+- A project in CentaurOps with a runnable flow
 - A [Langfuse Cloud](https://cloud.langfuse.com) or [self-hosted Langfuse](https://langfuse.com/self-hosting) account
 
 ## Set Langfuse credentials as environment variables
@@ -29,7 +29,7 @@ This guide walks you through how to configure Langflow to collect [tracing](http
   - Public Key
   - Host URL
 
-3. Set your Langfuse project credentials as environment variables in the same environment where you run Langflow.
+3. Set your Langfuse project credentials as environment variables in the same environment where you run CentaurOps.
 
 The following examples set environment variables in a Linux or macOS terminal session or in a Windows command prompt session:
 Replace `SECRET_KEY`, `PUBLIC_KEY`, and `HOST_URL` with the API key information you copied from Langfuse.
@@ -53,17 +53,17 @@ set LANGFUSE_HOST=HOST_URL
 
 </Tabs>
 
-## Start Langflow and view traces in Langfuse
+## Start CentaurOps and view traces in Langfuse
 
-1. Start Langflow in the same terminal or environment where you set the environment variables:
+1. Start CentaurOps in the same terminal or environment where you set the environment variables:
 
 ```bash
 uv run langflow run
 ```
 
-2. In Langflow, open an existing project, and then run a flow.
+2. In CentaurOps, open an existing project, and then run a flow.
 
-    Langflow automatically collects and sends tracing data about the flow execution to Langfuse.
+    CentaurOps automatically collects and sends tracing data about the flow execution to Langfuse.
 
 3. View the collected data in your Langfuse project dashboard.
 
@@ -73,9 +73,9 @@ For a live public example trace in a Langfuse dashboard, see [Public example tra
 
 ## Disable Langfuse Tracing
 
-To disable the Langfuse integration, remove the environment variables you set in the previous steps and restart Langflow.
+To disable the Langfuse integration, remove the environment variables you set in the previous steps and restart CentaurOps.
 
-## Run Langfuse and Langflow with Docker Compose
+## Run Langfuse and CentaurOps with Docker Compose
 
 If you prefer to self-host Langfuse, you can run both services with Docker Compose.
 
@@ -87,8 +87,8 @@ If you prefer to self-host Langfuse, you can run both services with Docker Compo
   - Public Key
   - Host URL
 
-3. Add your Langflow API keys to your `docker-compose.yml` file.
-An example [docker-compose.yml](https://github.com/langflow-ai/langflow/blob/main/docker_example/docker-compose.yml) file is available in the Langflow GitHub repo.
+3. Add your CentaurOps API keys to your `docker-compose.yml` file.
+An example [docker-compose.yml](https://github.com/langflow-ai/langflow/blob/main/docker_example/docker-compose.yml) file is available in the CentaurOps GitHub repo.
 ```yml
 services:
   langflow:
@@ -128,7 +128,7 @@ volumes:
 ```text
 docker-compose up
 ```
-5. To confirm Langfuse is connected to your Langflow container, run this command.
+5. To confirm Langfuse is connected to your CentaurOps container, run this command.
 Ensure you've exported `LANGFLOW_HOST` as a variable in your terminal.
 ```sh
 docker compose exec langflow python -c "import requests, os; addr = os.environ.get('LANGFUSE_HOST'); print(addr); res = requests.get(addr, timeout=5); print(res.status_code)"

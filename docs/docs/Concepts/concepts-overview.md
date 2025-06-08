@@ -1,11 +1,11 @@
 ---
-title: Langflow overview
+title: CentaurOps overview
 slug: /concepts-overview
 ---
 
 import Icon from "@site/src/components/icon";
 
-This page explores the fundamental building blocks of Langflow, beginning with the question, **"What is a flow?"**
+This page explores the fundamental building blocks of CentaurOps, beginning with the question, **"What is a flow?"**
 
 ## What is a flow?
 
@@ -23,7 +23,7 @@ A flow can be as simple as the [basic prompting flow](/get-started-quickstart), 
 
 If you're familiar with [React Flow](https://reactflow.dev/learn), a **flow** is a node-based application, a **component** is a node, and the connections between components are **edges**.
 
-When a flow is run, Langflow builds a Directed Acyclic Graph (DAG) graph object from the nodes (components) and edges (connections between components), with the nodes sorted to determine the order of execution. The graph build calls the individual components' `def_build` functions to validate and prepare the nodes. This graph is then processed in dependency order. Each node is built and executed sequentially, with results from each built node being passed to nodes that are dependent on the previous node's results.
+When a flow is run, CentaurOps builds a Directed Acyclic Graph (DAG) graph object from the nodes (components) and edges (connections between components), with the nodes sorted to determine the order of execution. The graph build calls the individual components' `def_build` functions to validate and prepare the nodes. This graph is then processed in dependency order. Each node is built and executed sequentially, with results from each built node being passed to nodes that are dependent on the previous node's results.
 
 Flows are stored on local disk at the following default locations:
 
@@ -34,9 +34,9 @@ The flow storage location can be customized with the [LANGFLOW_CONFIG_DIR](/envi
 
 ## Find your way around
 
-If you're new to Langflow, it's OK to feel a bit lost at first. We’ll take you on a tour, so you can orient yourself and start creating applications quickly.
+If you're new to CentaurOps, it's OK to feel a bit lost at first. We’ll take you on a tour, so you can orient yourself and start creating applications quickly.
 
-Langflow has four distinct regions: the [workspace](#workspace) is the main area where you build your flows. The components sidebar is on the left, and lists the available [components](#components). The [playground](#playground) and [publish pane](#publish-pane) are available in the upper right corner.
+CentaurOps has four distinct regions: the [workspace](#workspace) is the main area where you build your flows. The components sidebar is on the left, and lists the available [components](#components). The [playground](#playground) and [publish pane](#publish-pane) are available in the upper right corner.
 
 ## Workspace
 
@@ -90,7 +90,7 @@ To access the **Logs** pane, click your **Flow Name**, and then select **Logs**.
 
 ![](/img/logs.png)
 
-Langflow stores logs at the location specified in the `LANGFLOW_CONFIG_DIR` environment variable.
+CentaurOps stores logs at the location specified in the `LANGFLOW_CONFIG_DIR` environment variable.
 
 This directory's default location depends on your operating system.
 
@@ -101,13 +101,13 @@ This directory's default location depends on your operating system.
 To modify the location of your log file:
 
 1. Add `LANGFLOW_LOG_FILE=path/to/logfile.log` in your `.env` file.
-2. To start Langflow with the values from your `.env` file, start Langflow with `uv run langflow run --env-file .env`.
+2. To start CentaurOps with the values from your `.env` file, start CentaurOps with `uv run langflow run --env-file .env`.
 
 An example `.env` file is available in the [project repository](https://github.com/langflow-ai/langflow/blob/main/.env.example).
 
 ## Projects
 
-The **Projects** page displays all the flows you've created in the Langflow workspace.
+The **Projects** page displays all the flows you've created in the CentaurOps workspace.
 
 ![](/img/my-projects.png)
 
@@ -121,13 +121,13 @@ You can select multiple flows in a single action.
 
 ## File management
 
-Upload, store, and manage files in Langflow's **File management** system.
+Upload, store, and manage files in CentaurOps's **File management** system.
 
 For more on managing your files, see [Manage files](/concepts-file-management).
 
 ## Options menu
 
-The dropdown menu labeled with the project name offers several management and customization options for the current flow in the Langflow workspace:
+The dropdown menu labeled with the project name offers several management and customization options for the current flow in the CentaurOps workspace:
 
 - <Icon name="Plus" aria-hidden="true"/> **New**: Create a new flow from scratch.
 - <Icon name="SquarePen" aria-hidden="true"/> **Edit Details**: Adjust settings specific to the current flow, such as its name, description, and endpoint name.
@@ -140,4 +140,4 @@ The dropdown menu labeled with the project name offers several management and cu
 
 ## Settings
 
-Click <Icon name="Settings" aria-hidden="true"/> **Settings** to access **Global variables**, **Langflow API keys**, **Shortcuts**, and **Messages**.
+Click <Icon name="Settings" aria-hidden="true"/> **Settings** to access **Global variables**, **CentaurOps API keys**, **Shortcuts**, and **Messages**.

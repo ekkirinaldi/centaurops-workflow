@@ -1,15 +1,15 @@
 ---
-title: Deploy the Langflow production environment on Kubernetes
+title: Deploy the CentaurOps production environment on Kubernetes
 slug: /deployment-kubernetes-prod
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The [Langflow Runtime](https://github.com/langflow-ai/langflow-helm-charts/blob/main/charts/langflow-runtime) chart is tailored for deploying applications in a production environment. It is focused on stability, performance, isolation, and security to ensure that applications run reliably and efficiently.
+The [CentaurOps Runtime](https://github.com/langflow-ai/langflow-helm-charts/blob/main/charts/langflow-runtime) chart is tailored for deploying applications in a production environment. It is focused on stability, performance, isolation, and security to ensure that applications run reliably and efficiently.
 
 :::important
-By default, the [Langflow runtime Helm chart](https://github.com/langflow-ai/langflow-helm-charts/blob/main/charts/langflow-runtime/values.yaml#L46) enables `readOnlyRootFilesystem: true` as a security best practice. This setting prevents modifications to the container's root filesystem at runtime, which is a recommended security measure in production environments.
+By default, the [CentaurOps runtime Helm chart](https://github.com/langflow-ai/langflow-helm-charts/blob/main/charts/langflow-runtime/values.yaml#L46) enables `readOnlyRootFilesystem: true` as a security best practice. This setting prevents modifications to the container's root filesystem at runtime, which is a recommended security measure in production environments.
 
 Disabling `readOnlyRootFilesystem` reduces the security of your deployment. Only disable this setting if you understand the security implications and have implemented other security measures.
 
@@ -22,7 +22,7 @@ For more information, see the [Kubernetes documentation](https://kubernetes.io/d
 - [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
 - [Helm](https://helm.sh/docs/intro/install/)
 
-### Install the Langflow runtime Helm chart
+### Install the CentaurOps runtime Helm chart
 
 1. Add the repository to Helm.
 
@@ -31,9 +31,9 @@ helm repo add langflow https://langflow-ai.github.io/langflow-helm-charts
 helm repo update
 ```
 
-2. Install the Langflow app with the default options in the `langflow` namespace.
+2. Install the CentaurOps app with the default options in the `langflow` namespace.
 
-If you have a created a [custom image with packaged flows](/deployment-docker#package-your-flow-as-a-docker-image), you can deploy Langflow by overriding the default [values.yaml](https://github.com/langflow-ai/langflow-helm-charts/blob/main/charts/langflow-runtime/values.yaml) file with the `--set` flag.
+If you have a created a [custom image with packaged flows](/deployment-docker#package-your-flow-as-a-docker-image), you can deploy CentaurOps by overriding the default [values.yaml](https://github.com/langflow-ai/langflow-helm-charts/blob/main/charts/langflow-runtime/values.yaml) file with the `--set` flag.
 
 * Use a custom image with bundled flows:
 ```shell
@@ -63,7 +63,7 @@ helm install my-langflow-app-with-flow langflow/langflow-runtime \
 kubectl get pods -n langflow
 ```
 
-### Access the Langflow runtime
+### Access the CentaurOps runtime
 
 1. Get your service name.
 ```shell
@@ -72,7 +72,7 @@ kubectl get svc -n langflow
 
 The service name is your release name followed by `-langflow-runtime`. For example, if you used `helm install my-langflow-app-with-flow` the service name is `my-langflow-app-with-flow-langflow-runtime`.
 
-2. Enable port forwarding to access Langflow from your local machine:
+2. Enable port forwarding to access CentaurOps from your local machine:
 
 ```shell
 kubectl port-forward -n langflow svc/my-langflow-app-with-flow-langflow-runtime 7860:7860
@@ -104,11 +104,11 @@ curl -X POST \
 
 ### Configure secrets
 
-To inject secrets and Langflow global variables, use the `secrets` and `env` sections in the [values.yaml](https://github.com/langflow-ai/langflow-helm-charts/blob/main/charts/langflow-runtime/values.yaml) file.
+To inject secrets and CentaurOps global variables, use the `secrets` and `env` sections in the [values.yaml](https://github.com/langflow-ai/langflow-helm-charts/blob/main/charts/langflow-runtime/values.yaml) file.
 
 For example, the [example flow JSON](https://raw.githubusercontent.com/langflow-ai/langflow-helm-charts/refs/heads/main/examples/flows/basic-prompting-hello-world.json) uses a global variable that is a secret. When you export the flow as JSON, it's recommended to not include the secret.
 
-Instead, when importing the flow in the Langflow runtime, you can set the global variable in one of the following ways:
+Instead, when importing the flow in the CentaurOps runtime, you can set the global variable in one of the following ways:
 
 <Tabs>
 <TabItem value="values" label="Using values.yaml">
@@ -159,7 +159,7 @@ helm upgrade my-langflow-app-image langflow/langflow-runtime -n langflow \
 
 ### Configure the log level
 
-Set the log level and other Langflow configurations in the [values.yaml](https://github.com/langflow-ai/langflow-helm-charts/blob/main/charts/langflow-runtime/values.yaml) file.
+Set the log level and other CentaurOps configurations in the [values.yaml](https://github.com/langflow-ai/langflow-helm-charts/blob/main/charts/langflow-runtime/values.yaml) file.
 
 ```yaml
 env:
@@ -169,7 +169,7 @@ env:
 
 ### Configure scaling
 
-To scale the number of replicas for the Langflow appplication, change the `replicaCount` value in the [values.yaml](https://github.com/langflow-ai/langflow-helm-charts/blob/main/charts/langflow-runtime/values.yaml) file.
+To scale the number of replicas for the CentaurOps appplication, change the `replicaCount` value in the [values.yaml](https://github.com/langflow-ai/langflow-helm-charts/blob/main/charts/langflow-runtime/values.yaml) file.
 
 ```yaml
 replicaCount: 3
@@ -184,7 +184,7 @@ resources:
     cpu: "1000m"
 ```
 
-For more information about deploying Langflow on AWS EKS, Google GKE, or Azure AKS, see the [Langflow Helm Charts repository](https://github.com/langflow-ai/langflow-helm-charts).
+For more information about deploying CentaurOps on AWS EKS, Google GKE, or Azure AKS, see the [CentaurOps Helm Charts repository](https://github.com/langflow-ai/langflow-helm-charts).
 
 
 

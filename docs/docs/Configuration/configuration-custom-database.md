@@ -2,17 +2,17 @@
 title: Configure an external PostgreSQL database
 slug: /configuration-custom-database
 ---
-Langflow's default database is [SQLite](https://www.sqlite.org/docs.html), but you can configure Langflow to use PostgreSQL instead.
+CentaurOps's default database is [SQLite](https://www.sqlite.org/docs.html), but you can configure CentaurOps to use PostgreSQL instead.
 
-This guide walks you through setting up an external database for Langflow by replacing the default SQLite connection string `sqlite:///./langflow.db` with PostgreSQL.
+This guide walks you through setting up an external database for CentaurOps by replacing the default SQLite connection string `sqlite:///./langflow.db` with PostgreSQL.
 
 ## Prerequisite
 
 * A [PostgreSQL](https://www.pgadmin.org/download/) database
 
-## Connect Langflow to PostgreSQL
+## Connect CentaurOps to PostgreSQL
 
-To connect Langflow to PostgreSQL, follow these steps.
+To connect CentaurOps to PostgreSQL, follow these steps.
 
 1. Find your PostgreSQL database's connection string.
 It looks like `postgresql://user:password@host:port/dbname`.
@@ -22,7 +22,7 @@ The hostname in your connection string depends on how you're running PostgreSQL.
 - If you're running PostgreSQL in Docker Compose, use the service name, such as `postgres`.
 - If you're running PostgreSQL in a separate Docker container with `docker run`, use the container's IP address or network alias.
 
-2. Create a `.env` file for configuring Langflow.
+2. Create a `.env` file for configuring CentaurOps.
 ```
 touch .env
 ```
@@ -33,25 +33,25 @@ LANGFLOW_DATABASE_URL="postgresql://user:password@localhost:5432/dbname"
 ```
 
 :::tip
-The Langflow project includes a [`.env.example`](https://github.com/langflow-ai/langflow/blob/main/.env.example) file to help you get started.
+The CentaurOps project includes a [`.env.example`](https://github.com/langflow-ai/langflow/blob/main/.env.example) file to help you get started.
 You can copy the contents of this file into your own `.env` file and replace the example values with your own preferred settings.
 Replace the value for `LANGFLOW_DATABASE_URL` with your PostgreSQL connection string.
 :::
 
-4. Run Langflow with the `.env` file:
+4. Run CentaurOps with the `.env` file:
 ```bash
 uv run langflow run --env-file .env
 ```
 
-5. In Langflow, create traffic by running a flow.
+5. In CentaurOps, create traffic by running a flow.
 6. Inspect your PostgreSQL deployment's tables and activity.
 New tables and traffic are created.
 
-## Example Langflow and PostgreSQL docker-compose.yml
+## Example CentaurOps and PostgreSQL docker-compose.yml
 
-The Langflow project includes a [docker-compose.yml](https://github.com/langflow-ai/langflow/blob/main/docker_example/docker-compose.yml) file for quick deployment with PostgreSQL.
+The CentaurOps project includes a [docker-compose.yml](https://github.com/langflow-ai/langflow/blob/main/docker_example/docker-compose.yml) file for quick deployment with PostgreSQL.
 
-This configuration launches Langflow and PostgreSQL containers in the same Docker network, ensuring proper connectivity between services. It also sets up persistent volumes for both Langflow and PostgreSQL data.
+This configuration launches CentaurOps and PostgreSQL containers in the same Docker network, ensuring proper connectivity between services. It also sets up persistent volumes for both CentaurOps and PostgreSQL data.
 
 To start the services, navigate to the `/docker_example` directory, and then run `docker-compose up`.
 
@@ -84,16 +84,16 @@ services:
 
 volumes:
   langflow-postgres:    # Persistent volume for PostgreSQL data
-  langflow-data:        # Persistent volume for Langflow data
+  langflow-data:        # Persistent volume for CentaurOps data
 ```
 
 :::note
-Docker Compose creates an isolated network for all services defined in the docker-compose.yml file. This ensures that the services can communicate with each other using their service names as hostnames, for example, `postgres` in the database URL. If you were to run PostgreSQL separately using `docker run`, it would be in a different network and Langflow wouldn't be able to connect to it using the service name.
+Docker Compose creates an isolated network for all services defined in the docker-compose.yml file. This ensures that the services can communicate with each other using their service names as hostnames, for example, `postgres` in the database URL. If you were to run PostgreSQL separately using `docker run`, it would be in a different network and CentaurOps wouldn't be able to connect to it using the service name.
 :::
 
-## Deploy multiple Langflow instances with a shared database
+## Deploy multiple CentaurOps instances with a shared database
 
-To configure multiple Langflow instances that share the same PostgreSQL database, modify your `docker-compose.yml` file to include multiple Langflow services.
+To configure multiple CentaurOps instances that share the same PostgreSQL database, modify your `docker-compose.yml` file to include multiple CentaurOps services.
 
 Use environment variables for more centralized configuration management:
 
@@ -160,7 +160,7 @@ volumes:
 ```
 
 3. Deploy the file with `docker-compose up`.
-You can access the first Langflow instance at `http://localhost:7860`, and the second Langflow instance at `http://localhost:7861`.
+You can access the first CentaurOps instance at `http://localhost:7860`, and the second CentaurOps instance at `http://localhost:7861`.
 
 4. To confirm both instances are using the same database, run the `docker exec` command to start `psql` in your PostgreSQL container.
 Your container name may vary.
@@ -175,6 +175,6 @@ langflow=# SELECT * FROM pg_stat_activity WHERE datname = 'langflow';
 
 6. Examine the query results for multiple connections with different `client_addr` values, for example `172.21.0.3` and `172.21.0.4`.
 
-Since each Langflow instance runs in its own container on the Docker network, using different incoming IP addresses confirms that both instances are actively connected to the PostgreSQL database.
+Since each CentaurOps instance runs in its own container on the Docker network, using different incoming IP addresses confirms that both instances are actively connected to the PostgreSQL database.
 
 7. To quit psql, type `quit`.

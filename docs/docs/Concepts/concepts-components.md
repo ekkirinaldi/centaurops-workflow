@@ -5,7 +5,7 @@ slug: /concepts-components
 
 import Icon from "@site/src/components/icon";
 
-# Langflow components overview
+# CentaurOps components overview
 
 A component is a single building block within a flow with inputs, outputs, functions, and parameters that define its functionality. A single component is like a class within a larger application.
 
@@ -209,12 +209,12 @@ A component's initial state is stored in a database. As soon as you drag a compo
 
 A component keeps the version number it is initialized to the workspace with. If a component is at version `1.0` when it is dragged to the workspace, it will stay at version `1.0` until you update it.
 
-Langflow notifies you when a component's workspace version is behind the database version and an update is available.
+CentaurOps notifies you when a component's workspace version is behind the database version and an update is available.
 
 ### Review and update components
 
 When a component's workspace version is behind the database version and an update is available, the component displays a notification.
-If there are potentially breaking changes in the component updates, Langflow notifies you with an additional dialog.
+If there are potentially breaking changes in the component updates, CentaurOps notifies you with an additional dialog.
 
 Breaking changes modify component inputs and outputs, and may break your flows or require you to re-connect component edges.
 

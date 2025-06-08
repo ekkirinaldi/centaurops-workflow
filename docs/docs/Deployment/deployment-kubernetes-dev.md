@@ -1,12 +1,12 @@
 ---
-title: Deploy the Langflow development environment on Kubernetes
+title: Deploy the CentaurOps development environment on Kubernetes
 slug: /deployment-kubernetes-dev
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The [Langflow Integrated Development Environment (IDE)](https://github.com/langflow-ai/langflow-helm-charts/tree/main/charts/langflow-ide) Helm chart is designed to provide a complete environment for developers to create, test, and debug their flows. It includes both the API and the UI.
+The [CentaurOps Integrated Development Environment (IDE)](https://github.com/langflow-ai/langflow-helm-charts/tree/main/charts/langflow-ide) Helm chart is designed to provide a complete environment for developers to create, test, and debug their flows. It includes both the API and the UI.
 
 ### Prerequisites
 
@@ -30,7 +30,7 @@ This example uses [Minikube](https://minikube.sigs.k8s.io/docs/start/), but you 
 	kubectl config use-context minikube
 	```
 
-### Install the Langflow IDE Helm chart
+### Install the CentaurOps IDE Helm chart
 
 1. Add the repository to Helm and update it.
 
@@ -39,7 +39,7 @@ This example uses [Minikube](https://minikube.sigs.k8s.io/docs/start/), but you 
 	helm repo update
 	```
 
-2. Install Langflow with the default options in the `langflow` namespace.
+2. Install CentaurOps with the default options in the `langflow` namespace.
 
 	```shell
 	helm install langflow-ide langflow/langflow-ide -n langflow --create-namespace
@@ -51,29 +51,29 @@ This example uses [Minikube](https://minikube.sigs.k8s.io/docs/start/), but you 
 	kubectl get pods -n langflow
 	```
 
-### Access the Langflow IDE
+### Access the CentaurOps IDE
 
-Enable local port forwarding to access Langflow from your local machine.
+Enable local port forwarding to access CentaurOps from your local machine.
 
-1. To make the Langflow API accessible from your local machine at port 7860:
+1. To make the CentaurOps API accessible from your local machine at port 7860:
 ```shell
 kubectl port-forward -n langflow svc/langflow-service-backend 7860:7860
 ```
 
-2. To make the Langflow UI accessible from your local machine at port 8080:
+2. To make the CentaurOps UI accessible from your local machine at port 8080:
 ```shell
 kubectl port-forward -n langflow svc/langflow-service 8080:8080
 ```
 
 Now you can do the following:
-- Access the Langflow API at `http://localhost:7860`.
-- Access the Langflow UI at `http://localhost:8080`.
+- Access the CentaurOps API at `http://localhost:7860`.
+- Access the CentaurOps UI at `http://localhost:8080`.
 
-### Configure the Langflow version
+### Configure the CentaurOps version
 
-Langflow is deployed with the `latest` version by default.
+CentaurOps is deployed with the `latest` version by default.
 
-To specify a different Langflow version, set the `langflow.backend.image.tag` and `langflow.frontend.image.tag` values in the [values.yaml](https://github.com/langflow-ai/langflow-helm-charts/blob/main/charts/langflow-ide/values.yaml) file.
+To specify a different CentaurOps version, set the `langflow.backend.image.tag` and `langflow.frontend.image.tag` values in the [values.yaml](https://github.com/langflow-ai/langflow-helm-charts/blob/main/charts/langflow-ide/values.yaml) file.
 
 ```yaml
 langflow:
@@ -157,4 +157,4 @@ langflow:
 If your flow relies on a shared state, such as built-in chat memory, you need to set up a shared database when scaling horizontally.
 :::
 
-For more examples of `langflow-ide` deployment, see the [Langflow Helm Charts repository](https://github.com/langflow-ai/langflow-helm-charts/tree/main/examples/langflow-ide).
+For more examples of `langflow-ide` deployment, see the [CentaurOps Helm Charts repository](https://github.com/langflow-ai/langflow-helm-charts/tree/main/examples/langflow-ide).

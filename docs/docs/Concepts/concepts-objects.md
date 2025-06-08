@@ -1,9 +1,9 @@
 ---
-title: Langflow objects
+title: CentaurOps objects
 slug: /concepts-objects
 ---
 
-In Langflow, objects are [Pydantic](https://docs.pydantic.dev/latest/api/base_model/) models that serve as structured, functional representations of data.
+In CentaurOps, objects are [Pydantic](https://docs.pydantic.dev/latest/api/base_model/) models that serve as structured, functional representations of data.
 
 ## Data object
 
@@ -43,7 +43,7 @@ print(data.get_text())  # Outputs: "No content available" because "content" key 
 print(data.title)  # Outputs: "Hello, World!" because "title" key is in the data dictionary
 ```
 
-The `Data` object is also convenient for visualization of outputs, since the output preview has visual elements to inspect data as a table and its cells as pop ups for basic types. The idea is to create a unified way to work and visualize complex information in Langflow.
+The `Data` object is also convenient for visualization of outputs, since the output preview has visual elements to inspect data as a table and its cells as pop ups for basic types. The idea is to create a unified way to work and visualize complex information in CentaurOps.
 
 To receive `Data` objects in a component input, use the `DataInput` input type.
 
@@ -78,7 +78,7 @@ The `Message` object extends the functionality of `Data` and includes additi
   - `edit`: Boolean indicating if the message was edited
   - `category`: Message category ("message", "error", "warning", "info")
 
-The `Message` object can be used to send, store, and manipulate chat messages within Langflow.
+The `Message` object can be used to send, store, and manipulate chat messages within CentaurOps.
 
 ### Create a Message object
 
@@ -155,7 +155,7 @@ message = Message(
 
 ## DataFrame object
 
-The `DataFrame` class is a custom extension of the Pandas [DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) class, specifically designed to work seamlessly with Langflow's `Data` objects. The class includes methods for converting between `DataFrame` and lists of `Data` objects.
+The `DataFrame` class is a custom extension of the Pandas [DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) class, specifically designed to work seamlessly with CentaurOps's `Data` objects. The class includes methods for converting between `DataFrame` and lists of `Data` objects.
 
 A `DataFrame` object accepts various input formats, including lists of `Data` objects, dictionaries, and existing `DataFrames`.
 

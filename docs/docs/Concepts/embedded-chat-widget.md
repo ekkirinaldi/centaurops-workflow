@@ -11,12 +11,12 @@ On the [Publish pane](/concepts-publish), the **Embed into site** tab displays c
 
 The chat widget is implemented as a web component called `langflow-chat` and is loaded from a CDN. For more information, see the [langflow-embedded-chat repository](https://github.com/langflow-ai/langflow-embedded-chat).
 
-For a sandbox example, see the [Langflow embedded chat CodeSandbox](https://codesandbox.io/p/sandbox/langflow-embedded-chat-example-dv9zpx).
+For a sandbox example, see the [CentaurOps embedded chat CodeSandbox](https://codesandbox.io/p/sandbox/langflow-embedded-chat-example-dv9zpx).
 
 The following example includes the minimum required inputs, called [props](https://react.dev/learn/passing-props-to-a-component) in React, for using the chat widget in your HTML code, which are `host_url` and `flow_id`.
 The `host_url` value must be `HTTPS`, and may not include a `/` after the URL.
-The `flow_id` value is found in your Langflow URL.
-For a Langflow server running the [Basic prompting flow](/starter-projects-basic-prompting) at `https://c822-73-64-93-151.ngrok-free.app/flow/dcbed533-859f-4b99-b1f5-16fce884f28f`, your chat widget code is similar to the following:
+The `flow_id` value is found in your CentaurOps URL.
+For a CentaurOps server running the [Basic prompting flow](/starter-projects-basic-prompting) at `https://c822-73-64-93-151.ngrok-free.app/flow/dcbed533-859f-4b99-b1f5-16fce884f28f`, your chat widget code is similar to the following:
 ```html
 <html>
   <head>
@@ -59,7 +59,7 @@ To add some styling to the chat widget, customize its elements with JSON:
   ></langflow-chat>
 ```
 
-To add a custom [session ID](/session-id) value and an API key for authentication to your Langflow server:
+To add a custom [session ID](/session-id) value and an API key for authentication to your CentaurOps server:
 ```html
 <html>
   <head>
@@ -77,8 +77,8 @@ To add a custom [session ID](/session-id) value and an API key for authenticatio
 ```
 
 The chat widget requires your flow to contain **Chat Input** and **Chat Output** components for the widget to communicate with it.
-Sending a message to Langflow without a **Chat Input** still triggers the flow, but the LLM warns you the message is empty.
-**Text Input** and **Text Output** components can send and receive messages with Langflow, but without the ongoing LLM "chat" context.
+Sending a message to CentaurOps without a **Chat Input** still triggers the flow, but the LLM warns you the message is empty.
+**Text Input** and **Text Output** components can send and receive messages with CentaurOps, but without the ongoing LLM "chat" context.
 
 ## Embed the chat widget with React
 
@@ -109,7 +109,7 @@ export default function ChatWidget({ className }) {
 2. Place the component anywhere in your code to display the chat widget.
 
 For example, in this docset, the React widget component is located at `docs > src > components > ChatWidget > index.tsx`.
-`index.tsx` includes a script to load the chat widget code from CDN and initialize the `ChatWidget` component with props pointing to a Langflow server.
+`index.tsx` includes a script to load the chat widget code from CDN and initialize the `ChatWidget` component with props pointing to a CentaurOps server.
 ```javascript
 import React, { useEffect } from 'react';
 
@@ -199,7 +199,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <div class="container">
-      <h1>Langflow Chat Test</h1>
+      <h1>CentaurOps Chat Test</h1>
       <langflow-chat
         host_url="https://c822-73-64-93-151.ngrok-free.app"
         flow_id="dcbed533-859f-4b99-b1f5-16fce884f28f"
@@ -222,7 +222,7 @@ import { Component } from '@angular/core';
   `]
 })
 export class AppComponent {
-  title = 'Langflow Chat Test';
+  title = 'CentaurOps Chat Test';
 }
 ```
 
@@ -238,8 +238,8 @@ All props and their types are listed in [index.tsx](https://github.com/langflow-
 |----------------------|---------|------------------------------------------------|
 | flow_id              | String  | Required. Identifier for the flow associated with the component. |
 | host_url             | String  | Required. URL of the host for communication with the chat component. |
-| api_key              | String  | X-API-Key header to send to Langflow. |
-| additional_headers   | JSON    | Additional headers to be sent to the Langflow server. |
+| api_key              | String  | X-API-Key header to send to CentaurOps. |
+| additional_headers   | JSON    | Additional headers to be sent to the CentaurOps server. |
 | session_id           | String  | Custom session id to override the random session id. |
 | height               | Number  | Height of the chat window in pixels. |
 | width                | Number  | Width of the chat window in pixels. |

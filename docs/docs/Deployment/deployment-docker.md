@@ -1,17 +1,17 @@
 ---
-title: Deploy Langflow on Docker
+title: Deploy CentaurOps on Docker
 slug: /deployment-docker
 ---
 
-This guide demonstrates deploying Langflow with Docker and Docker Compose.
+This guide demonstrates deploying CentaurOps with Docker and Docker Compose.
 
 Three options are available:
 
 * The [Quickstart](#quickstart) option starts a Docker container with default values.
-* The [Docker compose](#clone-the-repo-and-build-the-langflow-docker-container) option builds Langflow with a persistent PostgreSQL database service.
+* The [Docker compose](#clone-the-repo-and-build-the-langflow-docker-container) option builds CentaurOps with a persistent PostgreSQL database service.
 * The [Package your flow as a docker image](#package-your-flow-as-a-docker-image) option demonstrates packaging an existing flow with a Dockerfile.
 
-For more information on configuring the Docker image, see [Customize the Langflow Docker image with your own code](#customize-the-langflow-docker-image-with-your-own-code).
+For more information on configuring the Docker image, see [Customize the CentaurOps Docker image with your own code](#customize-the-langflow-docker-image-with-your-own-code).
 
 ## Prerequisites
 
@@ -24,10 +24,10 @@ With Docker installed and running on your system, run this command:
 
 `docker run -p 7860:7860 langflowai/langflow:latest`
 
-Langflow is now accessible at `http://localhost:7860/`.
-## Clone the repo and build the Langflow Docker container
+CentaurOps is now accessible at `http://localhost:7860/`.
+## Clone the repo and build the CentaurOps Docker container
 
-1. Clone the Langflow repository:
+1. Clone the CentaurOps repository:
 
    `git clone https://github.com/langflow-ai/langflow.git`
 
@@ -39,7 +39,7 @@ Langflow is now accessible at `http://localhost:7860/`.
 
    `docker compose up`
 
-Langflow is now accessible at `http://localhost:7860/`.
+CentaurOps is now accessible at `http://localhost:7860/`.
 
 ### Configure Docker services
 
@@ -58,16 +58,16 @@ docker run -it --rm \
     langflowai/langflow:latest
 ```
 
-### Langflow service
+### CentaurOps service
 
-The `langflow`service serves both the backend API and frontend UI of the Langflow web application.
+The `langflow`service serves both the backend API and frontend UI of the CentaurOps web application.
 
 The `langflow` service uses the `langflowai/langflow:latest` Docker image and exposes port `7860`. It depends on the `postgres` service.
 
 Environment variables:
 
 - `LANGFLOW_DATABASE_URL`: The connection string for the PostgreSQL database.
-- `LANGFLOW_CONFIG_DIR`: The directory where Langflow stores logs, file storage, monitor data, and secret keys.
+- `LANGFLOW_CONFIG_DIR`: The directory where CentaurOps stores logs, file storage, monitor data, and secret keys.
 
 Volumes:
 
@@ -75,7 +75,7 @@ Volumes:
 
 ### PostgreSQL service
 
-The `postgres` service is a database that stores Langflow's persistent data including flows, users, and settings.
+The `postgres` service is a database that stores CentaurOps's persistent data including flows, users, and settings.
 
 The service runs on port 5432 and includes a dedicated volume for data storage.
 
@@ -91,17 +91,17 @@ Volumes:
 
 - `langflow-postgres`: This volume is mapped to `/var/lib/postgresql/data` in the container.
 
-### Deploy a specific Langflow version with Docker Compose
+### Deploy a specific CentaurOps version with Docker Compose
 
-If you want to deploy a specific version of Langflow, you can modify the `image` field under the `langflow` service in the Docker Compose file. For example, to use version `1.0-alpha`, change `langflowai/langflow:latest` to `langflowai/langflow:1.0-alpha`.
+If you want to deploy a specific version of CentaurOps, you can modify the `image` field under the `langflow` service in the Docker Compose file. For example, to use version `1.0-alpha`, change `langflowai/langflow:latest` to `langflowai/langflow:1.0-alpha`.
 
 ## Package your flow as a Docker image
 
-You can include your Langflow flow with the application image.
+You can include your CentaurOps flow with the application image.
 When you build the image, your saved flow `.JSON` flow is included.
 This enables you to serve a flow from a container, push the image to Docker Hub, and deploy on Kubernetes.
 
-An example flow is available in the [Langflow Helm Charts](https://github.com/langflow-ai/langflow-helm-charts/tree/main/examples/flows) repository, or you can provide your own `JSON` file.
+An example flow is available in the [CentaurOps Helm Charts](https://github.com/langflow-ai/langflow-helm-charts/tree/main/examples/flows) repository, or you can provide your own `JSON` file.
 
 1. Create a project directory:
 
@@ -143,13 +143,13 @@ docker build -t myuser/langflow-hello-world:1.0.0 .
 docker push myuser/langflow-hello-world:1.0.0
 ```
 
-To deploy the image with Helm, see [Deploy the Langflow production environment on Kubernetes](/deployment-kubernetes-prod).
+To deploy the image with Helm, see [Deploy the CentaurOps production environment on Kubernetes](/deployment-kubernetes-prod).
 
-## Customize the Langflow Docker image with your own code
+## Customize the CentaurOps Docker image with your own code
 
-You can customize the Langflow Docker image by adding your own code or modifying existing components.
+You can customize the CentaurOps Docker image by adding your own code or modifying existing components.
 
-This example Dockerfile demonstrates how to customize Langflow by replacing the `astradb_graph.py` component, but the pattern can be adapted for any other components or custom code.
+This example Dockerfile demonstrates how to customize CentaurOps by replacing the `astradb_graph.py` component, but the pattern can be adapted for any other components or custom code.
 
 ```dockerfile
 FROM langflowai/langflow:latest
@@ -168,21 +168,21 @@ RUN SITE_PACKAGES=$(cat /tmp/site_packages.txt) && \
 RUN SITE_PACKAGES=$(cat /tmp/site_packages.txt) && \
     find "$SITE_PACKAGES" -name "*.pyc" -delete && \
     find "$SITE_PACKAGES" -name "__pycache__" -type d -exec rm -rf {} +
-# Expose the default Langflow port
+# Expose the default CentaurOps port
 EXPOSE 7860
-# Command to run Langflow
+# Command to run CentaurOps
 CMD ["python", "-m", "langflow", "run", "--host", "0.0.0.0", "--port", "7860"]
 ```
 
 To use this custom Dockerfile, do the following:
 
-1. Create a directory for your custom Langflow setup:
+1. Create a directory for your custom CentaurOps setup:
 ```bash
 mkdir langflow-custom && cd langflow-custom
 ```
 
 2. Create the necessary directory structure for your custom code.
-In this example, Langflow expects `astradb_graph.py` to exist in the `/vectorstores` directory, so you create a directory in that location.
+In this example, CentaurOps expects `astradb_graph.py` to exist in the `/vectorstores` directory, so you create a directory in that location.
 ```bash
 mkdir -p src/backend/base/langflow/components/vectorstores
 ```
@@ -197,4 +197,4 @@ docker build -t myuser/langflow-custom:1.0.0 .
 docker run -p 7860:7860 myuser/langflow-custom:1.0.0
 ```
 
-This approach can be adapted for any other components or custom code you want to add to Langflow by modifying the file paths and component names.
+This approach can be adapted for any other components or custom code you want to add to CentaurOps by modifying the file paths and component names.

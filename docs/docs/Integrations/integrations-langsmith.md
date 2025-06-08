@@ -5,10 +5,10 @@ slug: /integrations-langsmith
 
 
 
-LangSmith is a full-lifecycle DevOps service from LangChain that provides monitoring and observability. To integrate with Langflow, add your LangChain API key and configuration as Langflow environment variables, and then start Langflow.
+LangSmith is a full-lifecycle DevOps service from LangChain that provides monitoring and observability. To integrate with CentaurOps, add your LangChain API key and configuration as CentaurOps environment variables, and then start CentaurOps.
 
 1. Obtain your LangChain API key from [https://smith.langchain.com](https://smith.langchain.com/)
-2. Add the following keys to the Langflow .env file.
+2. Add the following keys to the CentaurOps .env file.
 Replace `LANGCHAIN_API_KEY` and `LANGSMITH_PROJECT_NAME` with your LangChain API key.
 
 ```text
@@ -22,8 +22,8 @@ Alternatively, export the environment variables in your terminal:
 
 `export LANGSMITH_TRACING=true && export LANGSMITH_ENDPOINT="https://api.smith.langchain.com/" && export LANGSMITH_API_KEY="LANGCHAIN_API_KEY" && export LANGSMITH_PROJECT="LANGSMITH_PROJECT_NAME"`
 
-3. Restart Langflow using `langflow run --env-file .env`
-4. Run a project in Langflow.
+3. Restart CentaurOps using `langflow run --env-file .env`
+4. Run a project in CentaurOps.
 5. View the Langsmith dashboard for monitoring and observability.
 
 ![](/img/langsmith-dashboard.png)

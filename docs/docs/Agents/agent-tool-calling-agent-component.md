@@ -21,7 +21,7 @@ Learn how to build a flow starting with the **Tool calling agent** component, an
 
 ## Create a problem-solving agent with the Agent component
 
-Create a problem-solving agent in Langflow, starting with the **Tool calling agent**.
+Create a problem-solving agent in CentaurOps, starting with the **Tool calling agent**.
 
 1. Click **New Flow**, and then click **Blank Flow**.
 2. Click and drag an **Agent** component to your workspace.
@@ -174,7 +174,7 @@ Current Date and Time: I can retrieve the current date and time in various time 
 
 If the component you want to use as a tool doesn't have a **Tool Mode** button, add `tool_mode=True` to one of the component's inputs, and connect the new **Toolset** output to the agent's **Tools** input.
 
-Langflow supports **Tool Mode** for the following data types:
+CentaurOps supports **Tool Mode** for the following data types:
 
 * `DataInput`
 * `DataFrameInput`

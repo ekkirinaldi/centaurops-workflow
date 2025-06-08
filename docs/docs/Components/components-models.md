@@ -5,7 +5,7 @@ slug: /components-models
 
 import Icon from "@site/src/components/icon";
 
-# Model components in Langflow
+# Model components in CentaurOps
 
 Model components generate text using large language models.
 
@@ -538,7 +538,7 @@ For more information, see [NVIDIA AI documentation](https://developer.nvidia.com
 
 This component generates text using Ollama's language models.
 
-To use this component in a flow, connect Langflow to your locally running Ollama server and select a model.
+To use this component in a flow, connect CentaurOps to your locally running Ollama server and select a model.
 
 1. In the Ollama component, in the **Base URL** field, enter the address for your locally running Ollama server.
 This value is set as the `OLLAMA_HOST` environment variable in Ollama.

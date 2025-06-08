@@ -3,7 +3,7 @@ title: Memories
 slug: /components-memories
 ---
 
-# Memory components in Langflow
+# Memory components in CentaurOps
 
 Memory components store and retrieve chat messages by `session_id`.
 

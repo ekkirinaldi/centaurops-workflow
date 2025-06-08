@@ -5,7 +5,7 @@ slug: /components-data
 
 import Icon from "@site/src/components/icon";
 
-# Data components in Langflow
+# Data components in CentaurOps
 
 Data components load data from a source into your flow.
 

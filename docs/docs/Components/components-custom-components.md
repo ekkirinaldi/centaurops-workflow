@@ -3,9 +3,9 @@ title: Create custom Python components
 slug: /components-custom-components
 ---
 
-Custom components extend Langflow's functionality through Python classes that inherit from `Component`. This enables integration of new features, data manipulation, external services, and specialized tools.
+Custom components extend CentaurOps's functionality through Python classes that inherit from `Component`. This enables integration of new features, data manipulation, external services, and specialized tools.
 
-In Langflow's node-based environment, each node is a "component" that performs discrete functions. Custom components are Python classes which define:
+In CentaurOps's node-based environment, each node is a "component" that performs discrete functions. Custom components are Python classes which define:
 
 * **Inputs** — Data or parameters your component requires.
 * **Outputs** — Data your component provides to downstream nodes.
@@ -15,7 +15,7 @@ The benefits of creating custom components include unlimited extensibility, reus
 
 Create custom components for performing specialized tasks, calling APIs, or adding advanced logic.
 
-Custom components in Langflow are built upon:
+Custom components in CentaurOps are built upon:
 
 * The Python class that inherits from `Component`.
 * Class-level attributes that identify and describe the component.
@@ -37,13 +37,13 @@ class MyCsvReader(Component):
 
 * **display_name**: A user-friendly label in the node header.
 * **description**: A brief summary shown in tooltips.
-* **icon**: A visual identifier from Langflow's icon library.
+* **icon**: A visual identifier from CentaurOps's icon library.
 * **name**: A unique internal identifier.
 * **documentation**: An optional link to external docs.
 
 ### Structure of a custom component
 
-A **Langflow custom component** goes beyond a simple class with inputs and outputs. It includes an internal structure with optional lifecycle steps, output generation, front-end interaction, and logic organization.
+A **CentaurOps custom component** goes beyond a simple class with inputs and outputs. It includes an internal structure with optional lifecycle steps, output generation, front-end interaction, and logic organization.
 
 A basic component:
 
@@ -72,7 +72,7 @@ class MyComponent(Component):
 ```
 ### Internal Lifecycle and Execution Flow
 
-Langflow's engine manages:
+CentaurOps's engine manages:
 
 * **Instantiation**:  A component is created and internal structures are initialized.
 * **Assigning Inputs**: Values from the UI or connections are assigned to component fields.
@@ -169,7 +169,7 @@ def some_method(self):
 
 ## Directory structure requirements
 
-By default, Langflow looks for custom components in the `langflow/components` directory.
+By default, CentaurOps looks for custom components in the `langflow/components` directory.
 
 If you're creating custom components in a different location using the [LANGFLOW_COMPONENTS_PATH](/environment-variables#LANGFLOW_COMPONENTS_PATH) environment variable, components must be organized in a specific directory structure to be properly loaded and displayed in the UI:
 
@@ -199,7 +199,7 @@ You can have **multiple category folders** to organize components into different
         └── tool_component.py
 ```
 
-This folder structure is required for Langflow to properly discover and load your custom components. Components placed directly in the base directory will not be loaded.
+This folder structure is required for CentaurOps to properly discover and load your custom components. Components placed directly in the base directory will not be loaded.
 
 ```
 /app/custom_components/          # LANGFLOW_COMPONENTS_PATH
@@ -212,7 +212,7 @@ Inputs and outputs define how data flows through the component, how it appears i
 
 ### Inputs
 
-Inputs are defined in a class-level `inputs` list. When Langflow loads the component, it uses this list to render fields and handles in the UI. Users or other components provide values or connections to fill these inputs.
+Inputs are defined in a class-level `inputs` list. When CentaurOps loads the component, it uses this list to render fields and handles in the UI. Users or other components provide values or connections to fill these inputs.
 
 An input is usually an instance of a class from `langflow.io` (such as `StrInput`, `DataInput`, or `MessageTextInput`). The most common constructor parameters are:
 
@@ -267,7 +267,7 @@ inputs = [
 
 ### Outputs
 
-Outputs are defined in a class-level `outputs` list. When Langflow renders a component, each output becomes a connector point in the UI. When you connect something to an output, Langflow automatically calls the corresponding method and passes the returned object to the next component.
+Outputs are defined in a class-level `outputs` list. When CentaurOps renders a component, each output becomes a connector point in the UI. When you connect something to an output, CentaurOps automatically calls the corresponding method and passes the returned object to the next component.
 
 An output is usually an instance of `Output` from `langflow.io`, with common parameters:
 
@@ -285,7 +285,7 @@ You can also set a `self.status` message inside the method to show progress or l
 - **`DataFrame`**: Pandas-based tables (`langflow.schema.DataFrame`).
 - **Primitive types**: `str`, `int`, `bool` (not recommended if you need type/color consistency).
 
-In this example, the `DataToDataFrame` component defines its output using the outputs list. The `df_out` output is linked to the `build_df` method, so when connected in the UI, Langflow calls this method and passes its returned DataFrame to the next node. This demonstrates how each output maps to a method that generates the actual output data.
+In this example, the `DataToDataFrame` component defines its output using the outputs list. The `df_out` output is linked to the `build_df` method, so when connected in the UI, CentaurOps calls this method and passes its returned DataFrame to the next node. This demonstrates how each output maps to a method that generates the actual output data.
 
 ```python
 from langflow.custom import Component
@@ -330,9 +330,9 @@ class DataToDataFrame(Component):
 
 ### Tool mode
 
-You can configure a Custom Component to work as a **Tool** by setting the parameter `tool_mode=True`. This allows the component to be used in Langflow's Tool Mode workflows, such as by Agent components.
+You can configure a Custom Component to work as a **Tool** by setting the parameter `tool_mode=True`. This allows the component to be used in CentaurOps's Tool Mode workflows, such as by Agent components.
 
-Langflow currently supports the following input types for Tool Mode:
+CentaurOps currently supports the following input types for Tool Mode:
 
 * `DataInput`
 * `DataFrameInput`
@@ -354,12 +354,12 @@ inputs = [
 
 ## Typed annotations
 
-In Langflow, **typed annotations** allow Langflow to visually guide users and maintain flow consistency.
+In CentaurOps, **typed annotations** allow CentaurOps to visually guide users and maintain flow consistency.
 
 Typed annotations provide:
 
 * **Color-coding**: Outputs like `-> Data` or `-> Message` get distinct colors.
-* **Validation**: Langflow blocks incompatible connections automatically.
+* **Validation**: CentaurOps blocks incompatible connections automatically.
 * **Readability**: Developers can quickly understand data flow.
 * **Development tools**: Better code suggestions and error checking in your code editor.
 
@@ -422,7 +422,7 @@ When using typed annotations, consider the following best practices:
 
 ## Enable dynamic fields
 
-In **Langflow**, dynamic fields allow inputs to change or appear based on user interactions. You can make an input dynamic by setting `dynamic=True`.
+In **CentaurOps**, dynamic fields allow inputs to change or appear based on user interactions. You can make an input dynamic by setting `dynamic=True`.
 Optionally, setting `real_time_refresh=True` triggers the `update_build_config` method to adjust the input's visibility or properties in real time, creating a contextual UI that only displays relevant fields based on the user's choices.
 
 In this example, the operator field triggers updates via `real_time_refresh=True`.
@@ -455,7 +455,7 @@ class RegexRouter(Component):
 
 ### Implement `update_build_config`
 
-When a field with `real_time_refresh=True` is modified, Langflow calls the `update_build_config` method, passing the updated field name, value, and the component's configuration to dynamically adjust the visibility or properties of other fields based on user input.
+When a field with `real_time_refresh=True` is modified, CentaurOps calls the `update_build_config` method, passing the updated field name, value, and the component's configuration to dynamically adjust the visibility or properties of other fields based on user input.
 
 This example will show or hide the `regex_pattern` field when the user selects a different operator.
 
@@ -491,12 +491,12 @@ When working with dynamic fields, consider the following best practices to ensur
 
 ## Error handling and logging
 
-In Langflow, robust error handling ensures that your components behave predictably, even when unexpected situations occur, such as invalid inputs, external API failures, or internal logic errors.
+In CentaurOps, robust error handling ensures that your components behave predictably, even when unexpected situations occur, such as invalid inputs, external API failures, or internal logic errors.
 
 ### Error handling techniques
 
 * **Raise Exceptions**:
-  If a critical error occurs, you can raise standard Python exceptions such as `ValueError`, or specialized exceptions like `ToolException`. Langflow will automatically catch these and display appropriate error messages in the UI, helping users quickly identify what went wrong.
+  If a critical error occurs, you can raise standard Python exceptions such as `ValueError`, or specialized exceptions like `ToolException`. CentaurOps will automatically catch these and display appropriate error messages in the UI, helping users quickly identify what went wrong.
   ```python
   def compute_result(self) -> str:
       if not self.user_input:
@@ -528,7 +528,7 @@ In Langflow, robust error handling ensures that your components behave predictab
   ```python
   def some_output(self) -> Data:
   if <some condition>:
-      self.stop("some_output")  # Tells Langflow no data flows
+      self.stop("some_output")  # Tells CentaurOps no data flows
       return Data(data={"error": "Condition not met"})
   ```
 
@@ -550,7 +550,7 @@ To build more reliable components, consider the following best practices:
 * **Return structured errors**: When appropriate, return `Data(data={"error": ...})` instead of raising exceptions to allow downstream handling.
 * **Stop outputs selectively**: Only halt specific outputs with `self.stop(...)` if necessary, to preserve correct flow behavior elsewhere.
 
-## Contribute custom components to Langflow
+## Contribute custom components to CentaurOps
 
-See [How to Contribute](/contributing-components) to contribute your custom component to Langflow.
+See [How to Contribute](/contributing-components) to contribute your custom component to CentaurOps.
 

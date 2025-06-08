@@ -6,9 +6,9 @@ slug: /api-reference-api-examples
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This page provides examples and practices for managing Langflow using the Langflow API.
+This page provides examples and practices for managing CentaurOps using the CentaurOps API.
 
-The Langflow API's OpenAPI spec can be viewed and tested at your Langflow deployment's `docs` endpoint.
+The CentaurOps API's OpenAPI spec can be viewed and tested at your CentaurOps deployment's `docs` endpoint.
 For example, `http://127.0.0.1:7860/docs`.
 
 ## Export values
@@ -17,8 +17,8 @@ You might find it helpful to set the following environment variables in your ter
 
 The examples in this guide use environment variables for these values.
 
-- Export your Langflow URL in your terminal.
-  Langflow starts by default at `http://127.0.0.1:7860`.
+- Export your CentaurOps URL in your terminal.
+  CentaurOps starts by default at `http://127.0.0.1:7860`.
 
 ```bash
 export LANGFLOW_URL="http://127.0.0.1:7860"
@@ -32,7 +32,7 @@ export FLOW_ID="359cd752-07ea-46f2-9d3b-a4407ef618da"
 ```
 
 - Export the `project-id` in your terminal.
-To find your project ID, call the Langflow [/api/v1/projects/](#read-projects) endpoint for a list of projects.
+To find your project ID, call the CentaurOps [/api/v1/projects/](#read-projects) endpoint for a list of projects.
 <Tabs>
 
   <TabItem value="curl" label="curl" default>
@@ -63,8 +63,8 @@ curl -X GET \
 export project_ID="1415de42-8f01-4f36-bf34-539f23e47466"
 ```
 
-- Export the Langflow API key as an environment variable.
-  To create a Langflow API key, run the following command in the Langflow CLI.
+- Export the CentaurOps API key as an environment variable.
+  To create a CentaurOps API key, run the following command in the CentaurOps CLI.
 
 <Tabs>
   <TabItem value="curl" label="curl" default>
@@ -88,11 +88,11 @@ export LANGFLOW_API_KEY="sk-..."
 
 ## Base
 
-Use the base Langflow API to run your flow and retrieve configuration information.
+Use the base CentaurOps API to run your flow and retrieve configuration information.
 
 ### Get all components
 
-This operation returns a dictionary of all Langflow components.
+This operation returns a dictionary of all CentaurOps components.
 
 <Tabs>
   <TabItem value="curl" label="curl" default>
@@ -106,7 +106,7 @@ curl -X GET \
   </TabItem>
   <TabItem value="result" label="Result">
 ```text
-A dictionary of all Langflow components.
+A dictionary of all CentaurOps components.
 ```
   </TabItem>
 </Tabs>
@@ -346,7 +346,7 @@ This endpoint is deprecated. Use the `/file` endpoint instead.
 
 ### Get version
 
-Get the version of the Langflow API.
+Get the version of the CentaurOps API.
 
 <Tabs>
   <TabItem value="curl" label="curl" default>
@@ -364,7 +364,7 @@ curl -X GET \
 {
     "version": "1.1.1",
     "main_version": "1.1.1",
-    "package": "Langflow"
+    "package": "CentaurOps"
 }
 ```
 
@@ -373,7 +373,7 @@ curl -X GET \
 
 ### Get config
 
-Retrieve the Langflow configuration information.
+Retrieve the CentaurOps configuration information.
 
 <Tabs>
   <TabItem value="curl" label="curl" default>
@@ -521,7 +521,7 @@ curl -X POST \
   -d '{"stop_component_id": "OpenAIModel-Uksag"}'
 ```
 
-The `/build` endpoint also accepts inputs for `data` directly, instead of using the values stored in the Langflow database.
+The `/build` endpoint also accepts inputs for `data` directly, instead of using the values stored in the CentaurOps database.
 This is useful for running flows without having to pass custom values through the UI.
 
 <Tabs>
@@ -556,24 +556,24 @@ curl -X POST \
 
 ## Files
 
-Use the `/files` endpoint to add or delete files between your local machine and Langflow.
+Use the `/files` endpoint to add or delete files between your local machine and CentaurOps.
 
 There are `/v1` and `/v2` versions of the `/files` endpoints.
 The `v2/files` version offers several improvements over `/v1`:
 
 - In `v1`, files are organized by `flow_id`. In `v2`, files are organized by `user_id`.
   This means files are accessed based on user ownership, and not tied to specific flows.
-  You can upload a file to Langflow one time, and use it with multiple flows.
-- In `v2`, files are tracked in the Langflow database, and can be added or deleted in bulk, instead of one by one.
+  You can upload a file to CentaurOps one time, and use it with multiple flows.
+- In `v2`, files are tracked in the CentaurOps database, and can be added or deleted in bulk, instead of one by one.
 - Responses from the `/v2` endpoint contain more descriptive metadata.
 - The `v2` endpoints require authentication by an API key or JWT.
 
 ## Files/V1 endpoints
 
-Use the `/files` endpoint to add or delete files between your local machine and Langflow.
+Use the `/files` endpoint to add or delete files between your local machine and CentaurOps.
 
 - In `v1`, files are organized by `flow_id`.
-- In `v2`, files are organized by `user_id` and tracked in the Langflow database, and can be added or deleted in bulk, instead of one by one.
+- In `v2`, files are organized by `user_id` and tracked in the CentaurOps database, and can be added or deleted in bulk, instead of one by one.
 
 ### Upload file (v1)
 
@@ -607,7 +607,7 @@ curl -X POST \
 
 ### Upload image files (v1)
 
-Send image files to the Langflow API for AI analysis.
+Send image files to the CentaurOps API for AI analysis.
 
 The default file limit is 100 MB. To configure this value, change the `LANGFLOW_MAX_FILE_SIZE_UPLOAD` environment variable.
 For more information, see [Supported environment variables](/environment-variables#supported-variables).
@@ -631,7 +631,7 @@ The API returns the image file path in the format `"file_path":"<YOUR-FLOW-ID>/<
 ```
 
 2. Post the image file to the **Chat Input** component of a **Basic prompting** flow.
-   Pass the file path value as an input in the **Tweaks** section of the curl call to Langflow.
+   Pass the file path value as an input in the **Tweaks** section of the curl call to CentaurOps.
    To find your Chat input component's ID, use the [](#)
 
 ```bash
@@ -731,9 +731,9 @@ curl -X DELETE \
 
 ## Files/V2 endpoints
 
-In `v2`, files are organized by `user_id` and tracked in the Langflow database, and can be added or deleted in bulk, instead of one by one.
+In `v2`, files are organized by `user_id` and tracked in the CentaurOps database, and can be added or deleted in bulk, instead of one by one.
 The `v2` endpoints require authentication by an API key or JWT.
-To create a Langflow API key and export it as an environment variable, see [Export values](#export-values).
+To create a CentaurOps API key and export it as an environment variable, see [Export values](#export-values).
 
 ### Upload file (v2)
 
@@ -1365,7 +1365,7 @@ Projects store your flows and components.
 
 ### Read projects
 
-Get a list of Langflow projects.
+Get a list of CentaurOps projects.
 
 <Tabs>
   <TabItem value="curl" label="curl" default>
@@ -1574,7 +1574,7 @@ The project contents.
 
 ### Upload project
 
-Upload a project to Langflow.
+Upload a project to CentaurOps.
 
 <Tabs>
   <TabItem value="curl" label="curl" default>
@@ -1592,7 +1592,7 @@ curl -X POST \
   <TabItem value="result" label="Result">
 
 ```text
-The project contents are uploaded to Langflow.
+The project contents are uploaded to CentaurOps.
 ```
 
   </TabItem>
@@ -1600,9 +1600,9 @@ The project contents are uploaded to Langflow.
 
 ## Logs
 
-Retrieve logs for your Langflow flow.
+Retrieve logs for your CentaurOps flow.
 
-This endpoint requires log retrieval to be enabled in your Langflow application.
+This endpoint requires log retrieval to be enabled in your CentaurOps application.
 
 To enable log retrieval, include these values in your `.env` file:
 
@@ -1614,7 +1614,7 @@ LANGFLOW_LOG_LEVEL=DEBUG
 
 For log retrieval to function, `LANGFLOW_LOG_RETRIEVER_BUFFER_SIZE` needs to be greater than 0. The default value is `10000`.
 
-Start Langflow with this `.env`:
+Start CentaurOps with this `.env`:
 
 ```text
 uv run langflow run --env-file .env
@@ -1702,7 +1702,7 @@ curl -X GET \
 
 ## Monitor
 
-Use the `/monitor` endpoint to monitor and modify messages passed between Langflow components, vertex builds, and transactions.
+Use the `/monitor` endpoint to monitor and modify messages passed between CentaurOps components, vertex builds, and transactions.
 
 ### Get Vertex builds
 
