@@ -46,7 +46,7 @@ STARTUP_SCRIPT=$(cat <<'EOF'
 apt -y update
 apt -y upgrade
 
-# Install Python 3 pip, Langflow, and Nginx
+# Install Python 3 pip, CentaurOps, and Nginx
 apt -y install python3-pip
 pip install langflow
 langflow --host 0.0.0.0 --port 7860

@@ -9,9 +9,9 @@ This document details how to set up a local development environment that will al
 
 ## Set up Git Repository Fork
 
-You will push changes to a fork of the Langflow repository, and from there create a Pull Request into the project repository.
+You will push changes to a fork of the CentaurOps repository, and from there create a Pull Request into the project repository.
 
-Fork the [Langflow GitHub repository](https://github.com/langflow-ai/langflow/fork), and follow the instructions to create a new fork.
+Fork the [CentaurOps GitHub repository](https://github.com/langflow-ai/langflow/fork), and follow the instructions to create a new fork.
 
 On your new fork, click the "<> Code" button to get a URL to [clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) using your preferred method, and clone the repository; for example using `https`:
 
@@ -79,7 +79,7 @@ At this point, validate you can access the UI by opening the URL shown.
 
 This is how the application would normally run: the (static) front-end pages are compiled, and then this "frontend" is served by the FastAPI server; the "backend" APIs are also serviced by the FastAPI server.
 
-However, as a developer,  you will want to proceed to the next step. Shutdown Langflow by hitting `Control (or Command)-C`.
+However, as a developer,  you will want to proceed to the next step. Shutdown CentaurOps by hitting `Control (or Command)-C`.
 
 ## Completing Development environment Setup
 
@@ -99,7 +99,7 @@ uv sync
 uv run pre-commit install
 ```
 
-## Run Langflow in "Development" Mode
+## Run CentaurOps in "Development" Mode
 
 With the above validation, you can now run the backend (FastAPI) and frontend (Node) services in a way that will "hot-reload" your changes. In this mode, the FastAPI server requires a Node.js server to serve the frontend pages rather than serving them directly.
 
@@ -125,7 +125,7 @@ INFO:     Will watch for changes in these directories: ['/home/phil/git/langflow
 INFO:     Loading environment from '.env'
 INFO:     Uvicorn running on http://0.0.0.0:7860 (Press CTRL+C to quit)
 INFO:     Started reloader process [22330] using WatchFiles
-Starting Langflow ...
+Starting CentaurOps ...
 ```
 
 At which point you can check http://localhost:7860/health in a browser; when the backend service is ready it will return a document like:
@@ -152,7 +152,7 @@ You will get output similar to:
   ➜  press h + enter to show help
 ```
 
-At this point, you can navigate to http://localhost:3000/ in a browser and access the Langflow User Interface.
+At this point, you can navigate to http://localhost:3000/ in a browser and access the CentaurOps User Interface.
 
 ### Build and Display Documentation
 

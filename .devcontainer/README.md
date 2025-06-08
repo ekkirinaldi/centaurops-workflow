@@ -1,14 +1,14 @@
-# Langflow Demo Codespace Readme
+# CentaurOps Demo Codespace Readme
 
-These instructions will walk you through the process of running a Langflow demo via GitHub Codespaces.
+These instructions will walk you through the process of running a CentaurOps demo via GitHub Codespaces.
 
-If you want a faster and easier demo experience with Langflow, DataStax Langflow is a hosted environment with zero setup: [Sign up for a free account.](https://astra.datastax.com/signup?type=langflow)
+If you want a faster and easier demo experience with CentaurOps, DataStax CentaurOps is a hosted environment with zero setup: [Sign up for a free account.](https://astra.datastax.com/signup?type=langflow)
 
 ## Create a Codespace in GitHub
 
 To setup the demo in Codespace:
 
-1. Navigate to the Langflow repo
+1. Navigate to the CentaurOps repo
 2. On the "Code <>" button, select the "Codespaces" tab
 3. Click the green "Create codespace on..." button (or "+" icon if you want more options) to create a new Codespace
 
@@ -17,7 +17,7 @@ To setup the demo in Codespace:
 After the codespace is opened, there will be two phases to the process. It will take ≈5-10 minutes to complete.
 
 * **Phase 1**: Building Container; you can click on the "Building Codespace" link to watch the logs
-* **Phase 2**: Building Langflow; the terminal will now show `Running postCreateCommand...`, similar to:
+* **Phase 2**: Building CentaurOps; the terminal will now show `Running postCreateCommand...`, similar to:
 
 ```
 ✔ Finishing up...
@@ -45,15 +45,15 @@ The service will start, and you will may notice a dialog in the lower right indi
 
 ```
 ╭───────────────────────────────────────────────────────────────────────╮
-│ Welcome to Langflow                                                   │
+│ Welcome to CentaurOps                                                   │
 │                                                                       │
 │ 🌟 GitHub: Star for updates → https://github.com/langflow-ai/langflow  │
 │ 💬 Discord: Join for support → https://discord.com/invite/EqksyE2EX9   │
 │                                                                       │
-│ We collect anonymous usage data to improve Langflow.                  │
+│ We collect anonymous usage data to improve CentaurOps.                  │
 │ To opt out, set: DO_NOT_TRACK=true in your environment.               │
 │                                                                       │
-│ 🟢 Open Langflow → http://127.0.0.1:7860                               │
+│ 🟢 Open CentaurOps → http://127.0.0.1:7860                               │
 ╰───────────────────────────────────────────────────────────────────────╯
 ```
 

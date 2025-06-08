@@ -1,31 +1,31 @@
-name: Langflow Release
-run-name: Langflow Release by @${{ github.actor }}
+name: CentaurOps Release
+run-name: CentaurOps Release by @${{ github.actor }}
 
 on:
   workflow_dispatch:
     inputs:
       release_package_base:
-        description: "Release Langflow Base"
+        description: "Release CentaurOps Base"
         required: true
         type: boolean
         default: false
       release_package_main:
-        description: "Release Langflow"
+        description: "Release CentaurOps"
         required: true
         type: boolean
         default: false
       build_docker_base:
-        description: "Build Docker Image for Langflow Base"
+        description: "Build Docker Image for CentaurOps Base"
         required: true
         type: boolean
         default: false
       build_docker_main:
-        description: "Build Docker Image for Langflow"
+        description: "Build Docker Image for CentaurOps"
         required: true
         type: boolean
         default: false
       build_docker_ep:
-        description: "Build Docker Image for Langflow with Entrypoint"
+        description: "Build Docker Image for CentaurOps with Entrypoint"
         required: false
         type: boolean
         default: false
@@ -52,7 +52,7 @@ jobs:
       release: true
 
   release-base:
-    name: Release Langflow Base
+    name: Release CentaurOps Base
     needs: [ci]
     if: inputs.release_package_base == true
     runs-on: ubuntu-latest
@@ -117,7 +117,7 @@ jobs:
           path: src/backend/base/dist
 
   release-main:
-    name: Release Langflow Main
+    name: Release CentaurOps Main
     if: inputs.release_package_main == true
     needs: [release-base]
     runs-on: ubuntu-latest
@@ -189,7 +189,7 @@ jobs:
           path: dist
 
   call_docker_build_base:
-    name: Call Docker Build Workflow for Langflow Base
+    name: Call Docker Build Workflow for CentaurOps Base
     if: inputs.build_docker_base == true
     needs: [release-base, release-main]
     uses: ./.github/workflows/docker-build.yml
@@ -201,7 +201,7 @@ jobs:
     secrets: inherit
 
   call_docker_build_main_ep:
-    name: Call Docker Build Workflow for Langflow with Entrypoint
+    name: Call Docker Build Workflow for CentaurOps with Entrypoint
     if: inputs.build_docker_ep == true
     needs: [release-main, call_docker_build_base]
     uses: ./.github/workflows/docker-build.yml
@@ -212,7 +212,7 @@ jobs:
     secrets: inherit
 
   call_docker_build_main:
-    name: Call Docker Build Workflow for Langflow
+    name: Call Docker Build Workflow for CentaurOps
     if: inputs.build_docker_main == true
     needs: [release-main, call_docker_build_main_ep]
     uses: ./.github/workflows/docker-build.yml
@@ -234,7 +234,7 @@ jobs:
     secrets: inherit
 
   call_docker_build_main_ep:
-    name: Call Docker Build Workflow for Langflow with Entrypoint
+    name: Call Docker Build Workflow for CentaurOps with Entrypoint
     if: inputs.build_docker_ep == true
     needs: [release-main]
     uses: ./.github/workflows/docker-build.yml

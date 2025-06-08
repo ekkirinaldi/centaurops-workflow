@@ -22,7 +22,7 @@ The source code is organized into two main directories:
 
 #### Backend (`src/backend/`)
 - `base/` - Core backend functionality
-- `langflow/` - Langflow-specific implementations
+- `langflow/` - CentaurOps-specific implementations
 - `tests/` - Backend test suite
 - Contains Dockerfile for backend containerization
 

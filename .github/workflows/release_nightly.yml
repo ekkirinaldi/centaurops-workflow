@@ -1,21 +1,21 @@
-name: Langflow Nightly Build
-run-name: Langflow Nightly Release by @${{ github.actor }}
+name: CentaurOps Nightly Build
+run-name: CentaurOps Nightly Release by @${{ github.actor }}
 
 on:
   workflow_dispatch:
     inputs:
       build_docker_base:
-        description: "Build Docker Image for Langflow Nightly Base"
+        description: "Build Docker Image for CentaurOps Nightly Base"
         required: true
         type: boolean
         default: false
       build_docker_main:
-        description: "Build Docker Image for Langflow Nightly"
+        description: "Build Docker Image for CentaurOps Nightly"
         required: true
         type: boolean
         default: false
       build_docker_ep:
-        description: "Build Docker Image for Langflow Nightly with Entrypoint"
+        description: "Build Docker Image for CentaurOps Nightly with Entrypoint"
         required: false
         type: boolean
         default: false
@@ -30,17 +30,17 @@ on:
   workflow_call:
     inputs:
       build_docker_base:
-        description: "Build Docker Image for Langflow Nightly Base"
+        description: "Build Docker Image for CentaurOps Nightly Base"
         required: true
         type: boolean
         default: false
       build_docker_main:
-        description: "Build Docker Image for Langflow Nightly"
+        description: "Build Docker Image for CentaurOps Nightly"
         required: true
         type: boolean
         default: false
       build_docker_ep:
-        description: "Build Docker Image for Langflow Nightly with Entrypoint"
+        description: "Build Docker Image for CentaurOps Nightly with Entrypoint"
         required: false
         type: boolean
         default: false
@@ -59,7 +59,7 @@ env:
 
 jobs:
   release-nightly-base:
-    name: Release Langflow Nightly Base
+    name: Release CentaurOps Nightly Base
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -135,7 +135,7 @@ jobs:
           path: src/backend/base/dist
 
   release-nightly-main:
-    name: Release Langflow Nightly Main
+    name: Release CentaurOps Nightly Main
     needs: [release-nightly-base]
     runs-on: ubuntu-latest
     outputs:
@@ -205,7 +205,7 @@ jobs:
           path: dist
 
   call_docker_build_base:
-    name: Call Docker Build Workflow for Langflow Base
+    name: Call Docker Build Workflow for CentaurOps Base
     if: always() && ${{ inputs.build_docker_base == 'true' }}
     needs: [release-nightly-base, release-nightly-main]
     uses: ./.github/workflows/docker-build.yml
@@ -216,7 +216,7 @@ jobs:
     secrets: inherit
 
   call_docker_build_main:
-    name: Call Docker Build Workflow for Langflow
+    name: Call Docker Build Workflow for CentaurOps
     if: always() && ${{ inputs.build_docker_main == 'true' }}
     needs: [release-nightly-main, call_docker_build_base]
     uses: ./.github/workflows/docker-build.yml
@@ -236,7 +236,7 @@ jobs:
     secrets: inherit
 
   call_docker_build_main_ep:
-    name: Call Docker Build Workflow for Langflow with Entrypoint
+    name: Call Docker Build Workflow for CentaurOps with Entrypoint
     if: always() && ${{ inputs.build_docker_ep == 'true' }}
     needs: [release-nightly-main, call_docker_build_main]
     uses: ./.github/workflows/docker-build.yml

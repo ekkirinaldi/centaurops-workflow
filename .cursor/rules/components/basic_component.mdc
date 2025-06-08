@@ -1,12 +1,12 @@
 ---
-description: Rules and checklist for creating a basic Langflow Component
+description: Rules and checklist for creating a basic CentaurOps Component
 globs: 
 alwaysApply: false
 ---
-# Rule: How to Create a Basic Langflow Component
+# Rule: How to Create a Basic CentaurOps Component
 
 ## Purpose
-Guide for Creating a Langflow Component
+Guide for Creating a CentaurOps Component
 
 ---
 

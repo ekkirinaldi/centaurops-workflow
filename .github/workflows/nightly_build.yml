@@ -63,7 +63,7 @@ jobs:
           # If the main tag does not exist in GH, we create the base tag from the existing codebase.
 
           git config --global user.email "bot-nightly-builds@langflow.org"
-          git config --global user.name "Langflow Bot"
+          git config --global user.name "CentaurOps Bot"
 
           MAIN_TAG="${{ steps.generate_main_tag.outputs.main_tag }}"
           BASE_TAG="${{ steps.generate_base_tag.outputs.base_tag }}"
@@ -77,7 +77,7 @@ jobs:
           git commit -m "Update version and project name"
 
           echo "Tagging main with $MAIN_TAG"
-          if ! git tag -a $MAIN_TAG -m "Langflow nightly $MAIN_TAG"; then
+          if ! git tag -a $MAIN_TAG -m "CentaurOps nightly $MAIN_TAG"; then
             echo "Tag creation failed. Exiting the workflow."
             exit 1
           fi
@@ -154,7 +154,7 @@ jobs:
 
   release-nightly-build:
     if: github.repository == 'langflow-ai/langflow'
-    name: Run Nightly Langflow Build
+    name: Run Nightly CentaurOps Build
     needs: [frontend-tests, backend-unit-tests, create-nightly-tag]
     uses: ./.github/workflows/release_nightly.yml
     with:

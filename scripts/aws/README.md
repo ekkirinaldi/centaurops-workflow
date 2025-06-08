@@ -1,4 +1,4 @@
-# Deploy Langflow on AWS
+# Deploy CentaurOps on AWS
 
 **Duration**: 30 minutes
 
@@ -9,7 +9,7 @@ This tutorial assumes you have an AWS account and basic knowledge of AWS.
 
 The architecture of the application to be created:
 ![langflow-archi](./img/langflow-archi.png)
-Langflow is deployed using AWS CDK. The application is distributed via [Amazon CloudFront](https://aws.amazon.com/cloudfront/?nc1=h_ls), which has two origins: the first is [Amazon Simple Storage Service](https://aws.amazon.com/s3/?nc1=h_ls) (S3) for serving a static website, and the second is an [Application Load Balancer](https://aws.amazon.com/elasticloadbalancing/application-load-balancer/?nc1=h_ls) (ALB) for communicating with the backend. [AWS Fargate](https://aws.amazon.com/fargate/?nc2=type_a), where FastAPI runs and [Amazon Aurora](https://aws.amazon.com/rds/aurora/?nc2=type_a), the database, are created behind the ALB.
+CentaurOps is deployed using AWS CDK. The application is distributed via [Amazon CloudFront](https://aws.amazon.com/cloudfront/?nc1=h_ls), which has two origins: the first is [Amazon Simple Storage Service](https://aws.amazon.com/s3/?nc1=h_ls) (S3) for serving a static website, and the second is an [Application Load Balancer](https://aws.amazon.com/elasticloadbalancing/application-load-balancer/?nc1=h_ls) (ALB) for communicating with the backend. [AWS Fargate](https://aws.amazon.com/fargate/?nc2=type_a), where FastAPI runs and [Amazon Aurora](https://aws.amazon.com/rds/aurora/?nc2=type_a), the database, are created behind the ALB.
 Fargate uses a Docker image stored in [Amazon Elastic Container Registry](https://aws.amazon.com/ecr/?nc1=h_ls) (ECR).
 Aurora's secret is managed by [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/?nc2=type_a).
 
