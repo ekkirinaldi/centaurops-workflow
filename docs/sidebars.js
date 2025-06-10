@@ -261,21 +261,6 @@ module.exports = {
     },
     {
       type: "category",
-      label: "Contributing",
-      items: [
-        "Contributing/contributing-community",
-        "Contributing/contributing-how-to-contribute",
-        "Contributing/contributing-components",
-        "Contributing/contributing-component-tests",
-        "Contributing/contributing-templates",
-        "Contributing/contributing-bundles",
-        "Contributing/contributing-github-discussion-board",
-        "Contributing/contributing-github-issues",
-        "Contributing/contributing-telemetry",
-      ],
-    },
-    {
-      type: "category",
       label: "Changelog",
       items: [
         {
@@ -284,30 +269,6 @@ module.exports = {
           href: "https://github.com/langflow-ai/langflow/releases/latest",
         },
       ],
-    },
-    {
-      type: "category",
-      label: "Support",
-      items: [
-        {
-          type: "doc",
-          id: "Support/luna-for-langflow",
-          label: "Luna for CentaurOps",
-        },
-      ],
-    },
-    {
-      type: "html",
-      className: "sidebar-ad",
-      value: `
-        <a href="https://astra.datastax.com/signup?type=langflow" target="_blank" class="menu__link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
-          <div class="sidebar-ad-text-container">
-            <span class="sidebar-ad-text">Use CentaurOps in the cloud</span>
-            <span class="sidebar-ad-text sidebar-ad-text-gradient">Sign up for DataStax CentaurOps</span>
-          </div>
-        </a>
-      `,
     },
   ],
 };
