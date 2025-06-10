@@ -18,7 +18,7 @@ The `LANGFLOW_LOG_ENV` controls log output and formatting. The `container` optio
 To modify CentaurOps's logging configuration, add them to your `.env` file and start CentaurOps.
 
 ```text
-LANGFLOW_LOG_LEVEL=ERROR
+CENTAUROPS_LOG_LEVEL=ERROR
 LANGFLOW_LOG_FILE=path/to/logfile.log
 LANGFLOW_LOG_ENV=container
 ```

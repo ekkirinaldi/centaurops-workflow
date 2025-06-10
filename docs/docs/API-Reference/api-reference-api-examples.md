@@ -1609,7 +1609,7 @@ To enable log retrieval, include these values in your `.env` file:
 ```text
 LANGFLOW_ENABLE_LOG_RETRIEVAL=true
 LANGFLOW_LOG_RETRIEVER_BUFFER_SIZE=10000
-LANGFLOW_LOG_LEVEL=DEBUG
+CENTAUROPS_LOG_LEVEL=DEBUG
 ```
 
 For log retrieval to function, `LANGFLOW_LOG_RETRIEVER_BUFFER_SIZE` needs to be greater than 0. The default value is `10000`.

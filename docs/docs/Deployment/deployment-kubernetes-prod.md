@@ -163,7 +163,7 @@ Set the log level and other CentaurOps configurations in the [values.yaml](https
 
 ```yaml
 env:
-  - name: LANGFLOW_LOG_LEVEL
+  - name: CENTAUROPS_LOG_LEVEL
     value: "INFO"
 ```
 

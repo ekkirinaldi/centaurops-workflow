@@ -11,7 +11,7 @@ This guide covers CentaurOps's authentication system and API key management, inc
 :::warning
 Never expose CentaurOps ports directly to the internet without proper security measures.
 
-Disable `LANGFLOW_AUTO_LOGIN`, use a secure `LANGFLOW_SECRET_KEY`, and ensure your CentaurOps server is behind a reverse proxy with authentication enabled.
+Disable `CENTAUROPS_AUTO_LOGIN`, use a secure `LANGFLOW_SECRET_KEY`, and ensure your CentaurOps server is behind a reverse proxy with authentication enabled.
 For more information, see [Start a secure CentaurOps server with authentication](#start-a-secure-langflow-server-with-authentication).
 :::
 
@@ -22,27 +22,27 @@ The section describes the available authentication configuration variables.
 The CentaurOps project includes a [`.env.example`](https://github.com/langflow-ai/langflow/blob/main/.env.example) file to help you get started.
 You can copy the contents of this file into your own `.env` file and replace the example values with your own preferred settings.
 
-### LANGFLOW_AUTO_LOGIN
+### CENTAUROPS_AUTO_LOGIN
 
 When `True`, CentaurOps automatically logs users in with username `langflow` and password `langflow` without requiring user authentication.
 To disable automatic login and enforce user authentication, set this value to `False` in your `.env` file.
 By default, this variable is set to `True`.
 
 CentaurOps **does not** allow users to have simultaneous or shared access to flows.
-If `AUTO_LOGIN` is enabled and user management is disabled (`LANGFLOW_NEW_USER_IS_ACTIVE=true`), users can access the same environment, but it is not password protected. If two users access the same flow, CentaurOps saves only the work of the last user to save.
+If `AUTO_LOGIN` is enabled and user management is disabled (`CENTAUROPS_NEW_USER_IS_ACTIVE=true`), users can access the same environment, but it is not password protected. If two users access the same flow, CentaurOps saves only the work of the last user to save.
 
 ```bash
-LANGFLOW_AUTO_LOGIN=True
+CENTAUROPS_AUTO_LOGIN=True
 ```
 
-### LANGFLOW_SUPERUSER and LANGFLOW_SUPERUSER_PASSWORD
+### CENTAUROPS_SUPERUSER and CENTAUROPS_SUPERUSER_PASSWORD
 
-These environment variables are only relevant when `LANGFLOW_AUTO_LOGIN` is set to `False`.
+These environment variables are only relevant when `CENTAUROPS_AUTO_LOGIN` is set to `False`.
 They specify the username and password for the superuser, which is essential for administrative tasks:
 
 ```text
-LANGFLOW_SUPERUSER=administrator
-LANGFLOW_SUPERUSER_PASSWORD=securepassword
+CENTAUROPS_SUPERUSER=administrator
+CENTAUROPS_SUPERUSER_PASSWORD=securepassword
 ```
 
 ### LANGFLOW_SECRET_KEY
@@ -95,13 +95,13 @@ python -c "from secrets import token_urlsafe; print(f'LANGFLOW_SECRET_KEY={token
 LANGFLOW_SECRET_KEY=dBuuuB_FHLvU8T9eUNlxQF9ppqRxwWpXXQ42kM2_fb
 ```
 
-### LANGFLOW_NEW_USER_IS_ACTIVE
+### CENTAUROPS_NEW_USER_IS_ACTIVE
 
 When this option is set to `True`, new users are automatically activated and can log in without requiring explicit activation by the superuser from the **Admin page**.
 By default, this variable is set to `False`.
 
 ```text
-LANGFLOW_NEW_USER_IS_ACTIVE=False
+CENTAUROPS_NEW_USER_IS_ACTIVE=False
 ```
 
 ## Start a secure CentaurOps server with authentication
@@ -117,11 +117,11 @@ This server creates a superuser account, requires users to log in before using C
 Create a `.env` file with the following configuration:
 
 ```text
-LANGFLOW_AUTO_LOGIN=False
-LANGFLOW_SUPERUSER=administrator
-LANGFLOW_SUPERUSER_PASSWORD=securepassword
+CENTAUROPS_AUTO_LOGIN=False
+CENTAUROPS_SUPERUSER=administrator
+CENTAUROPS_SUPERUSER_PASSWORD=securepassword
 LANGFLOW_SECRET_KEY=your_generated_key
-LANGFLOW_NEW_USER_IS_ACTIVE=False
+CENTAUROPS_NEW_USER_IS_ACTIVE=False
 ```
 
 2. Generate a secret key for encrypting sensitive data.
@@ -170,8 +170,8 @@ uv run langflow run --env-file .env
 
 1. To complete your first-time login as a superuser, go to `http://localhost:7860/login`.
 2. Log in with your superuser credentials:
-* Username: Value of `LANGFLOW_SUPERUSER` (for example, `administrator`)
-* Password: Value of `LANGFLOW_SUPERUSER_PASSWORD` (for example, `securepassword`)
+* Username: Value of `CENTAUROPS_SUPERUSER` (for example, `administrator`)
+* Password: Value of `CENTAUROPS_SUPERUSER_PASSWORD` (for example, `securepassword`)
 
 :::info
 The default values are `langflow` and `langflow`.

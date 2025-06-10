@@ -99,7 +99,7 @@ services:
     depends_on:
       - postgres
     environment:
-      - LANGFLOW_DATABASE_URL=postgresql://langflow:langflow@postgres:5432/langflow
+      - CENTAUROPS_DATABASE_URL=postgresql://langflow:langflow@postgres:5432/langflow
       # This variable defines where the logs, file storage, monitor data and secret keys are stored.
       - LANGFLOW_CONFIG_DIR=app/langflow
       - LANGFUSE_SECRET_KEY=sk-...
@@ -129,7 +129,7 @@ volumes:
 docker-compose up
 ```
 5. To confirm Langfuse is connected to your CentaurOps container, run this command.
-Ensure you've exported `LANGFLOW_HOST` as a variable in your terminal.
+Ensure you've exported `CENTAUROPS_HOST` as a variable in your terminal.
 ```sh
 docker compose exec langflow python -c "import requests, os; addr = os.environ.get('LANGFUSE_HOST'); print(addr); res = requests.get(addr, timeout=5); print(res.status_code)"
 ```

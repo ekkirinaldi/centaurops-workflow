@@ -50,8 +50,8 @@ The `docker.env` file is a `.env` file loaded into your Docker image.
 The following example `docker.env` file defines auto-login behavior and which port to expose. Your environment may vary. For more information, see [Environment variables](/environment-variables).
 
 ```text
-LANGFLOW_AUTO_LOGIN=true
-LANGFLOW_SAVE_DB_IN_CONFIG_DIR=true
+CENTAUROPS_AUTO_LOGIN=true
+CENTAUROPS_SAVE_DB_IN_CONFIG_DIR=true
 LANGFLOW_BASE_URL=http://0.0.0.0:7860
 OPENAI_API_KEY=sk-...
 ```

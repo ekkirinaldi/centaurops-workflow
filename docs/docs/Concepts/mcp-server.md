@@ -89,7 +89,7 @@ For example:
     The default CentaurOps server address is `http://127.0.0.1:7860` (`http://127.0.0.1:7868` if using CentaurOps for Desktop).
 
     :::important
-    If your CentaurOps server [requires authentication](/configuration-authentication) ([`LANGFLOW_AUTO_LOGIN`](/environment-variables#LANGFLOW_AUTO_LOGIN) is set to `false`), you must include your CentaurOps API key in the configuration.
+    If your CentaurOps server [requires authentication](/configuration-authentication) ([`CENTAUROPS_AUTO_LOGIN`](/environment-variables#CENTAUROPS_AUTO_LOGIN) is set to `false`), you must include your CentaurOps API key in the configuration.
     For more information, see [MCP server authentication and environment variables](#authentication).
     :::
 
@@ -103,7 +103,7 @@ For more information, see the [Cursor's MCP documentation](https://docs.cursor.c
 
 ### MCP server authentication and environment variables {#authentication}
 
-If your CentaurOps server [requires authentication](/configuration-authentication) ([`LANGFLOW_AUTO_LOGIN`](/environment-variables#LANGFLOW_AUTO_LOGIN) is set to `false`), then you must supply a [CentaurOps API key](/configuration-api-keys) in your MCP client configuration.
+If your CentaurOps server [requires authentication](/configuration-authentication) ([`CENTAUROPS_AUTO_LOGIN`](/environment-variables#CENTAUROPS_AUTO_LOGIN) is set to `false`), then you must supply a [CentaurOps API key](/configuration-api-keys) in your MCP client configuration.
 When this is the case, the code template in your project's **MCP Server** tab automatically includes the `--header` and `x-api-key` arguments:
 
 ```json

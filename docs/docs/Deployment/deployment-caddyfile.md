@@ -76,8 +76,8 @@ services:
     ports:
       - "7860:7860"
     environment:
-      - LANGFLOW_HOST=0.0.0.0
-      - LANGFLOW_PORT=7860
+      - CENTAUROPS_HOST=0.0.0.0
+      - CENTAUROPS_PORT=7860
 
   caddy:
     image: caddy:latest

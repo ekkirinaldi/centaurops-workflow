@@ -57,10 +57,10 @@ If external storage is connected to a memory helper component, no chat messages 
 
 ## Configure external memory
 
-To replace the default CentaurOps SQLite database with another database, modify the `LANGFLOW_DATABASE_URL` and start CentaurOps with this value.
+To replace the default CentaurOps SQLite database with another database, modify the `CENTAUROPS_DATABASE_URL` and start CentaurOps with this value.
 
 ```
-LANGFLOW_DATABASE_URL=postgresql://user:password@localhost:5432/langflow
+CENTAUROPS_DATABASE_URL=postgresql://user:password@localhost:5432/langflow
 ```
 
 For an example, see [Configure an external PostgreSQL database](/configuration-custom-database).
@@ -86,8 +86,8 @@ LANGFLOW_DB_CONNECT_TIMEOUT=20
 
 The default CentaurOps caching behavior is an asynchronous, in-memory cache.
 ```
-LANGFLOW_LANGCHAIN_CACHE=InMemoryCache
-LANGFLOW_CACHE_TYPE=Async
+CENTAUROPS_LANGCHAIN_CACHE=InMemoryCache
+CENTAUROPS_CACHE_TYPE=Async
 ```
 
 Alternative caching options can be configured, but options other than the default asynchronous, in-memory cache are not supported.

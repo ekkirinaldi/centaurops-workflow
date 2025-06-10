@@ -164,10 +164,10 @@ When adding global variables from the environment, the following limitations app
 :::
 
 
-If you want to explicitly prevent CentaurOps from sourcing global variables from the environment, set `LANGFLOW_STORE_ENVIRONMENT_VARIABLES` to `false` in your `.env` file:
+If you want to explicitly prevent CentaurOps from sourcing global variables from the environment, set `CENTAUROPS_STORE_ENVIRONMENT_VARIABLES` to `false` in your `.env` file:
 
 ```text
-LANGFLOW_STORE_ENVIRONMENT_VARIABLES=false
+CENTAUROPS_STORE_ENVIRONMENT_VARIABLES=false
 ```
 
 If you want to automatically set fallback values for your global variables from environment variables, set the `LANGFLOW_FALLBACK_FROM_ENV_VAR` environment variable to `true` in your `.env` file. When this feature is enabled, if a global variable is not found, CentaurOps attempts to use an environment variable with the same name as a fallback.

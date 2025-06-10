@@ -29,13 +29,13 @@ touch .env
 
 3. To set the database URL environment variable, add it to your `.env` file:
 ```text
-LANGFLOW_DATABASE_URL="postgresql://user:password@localhost:5432/dbname"
+CENTAUROPS_DATABASE_URL="postgresql://user:password@localhost:5432/dbname"
 ```
 
 :::tip
 The CentaurOps project includes a [`.env.example`](https://github.com/langflow-ai/langflow/blob/main/.env.example) file to help you get started.
 You can copy the contents of this file into your own `.env` file and replace the example values with your own preferred settings.
-Replace the value for `LANGFLOW_DATABASE_URL` with your PostgreSQL connection string.
+Replace the value for `CENTAUROPS_DATABASE_URL` with your PostgreSQL connection string.
 :::
 
 4. Run CentaurOps with the `.env` file:
@@ -65,7 +65,7 @@ services:
     depends_on:
       - postgres
     environment:
-      - LANGFLOW_DATABASE_URL=postgresql://langflow:langflow@postgres:5432/langflow
+      - CENTAUROPS_DATABASE_URL=postgresql://langflow:langflow@postgres:5432/langflow
       # This variable defines where the logs, file storage, monitor data, and secret keys are stored.
       - LANGFLOW_CONFIG_DIR=app/langflow
     volumes:
@@ -105,9 +105,9 @@ POSTGRES_DB=langflow
 POSTGRES_HOST=postgres
 POSTGRES_PORT=5432
 LANGFLOW_CONFIG_DIR=app/langflow
-LANGFLOW_PORT_1=7860
-LANGFLOW_PORT_2=7861
-LANGFLOW_HOST=0.0.0.0
+CENTAUROPS_PORT_1=7860
+CENTAUROPS_PORT_2=7861
+CENTAUROPS_HOST=0.0.0.0
 ```
 2. Reference these variables in your `docker-compose.yml`:
 ```yaml
@@ -127,13 +127,13 @@ services:
     image: langflowai/langflow:latest
     pull_policy: always
     ports:
-      - "${LANGFLOW_PORT_1}:7860"
+      - "${CENTAUROPS_PORT_1}:7860"
     depends_on:
       - postgres
     environment:
-      - LANGFLOW_DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      - CENTAUROPS_DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
       - LANGFLOW_CONFIG_DIR=${LANGFLOW_CONFIG_DIR}
-      - LANGFLOW_HOST=${LANGFLOW_HOST}
+      - CENTAUROPS_HOST=${CENTAUROPS_HOST}
       - PORT=7860
     volumes:
       - langflow-data-1:/app/langflow
@@ -142,13 +142,13 @@ services:
     image: langflowai/langflow:latest
     pull_policy: always
     ports:
-      - "${LANGFLOW_PORT_2}:7860"
+      - "${CENTAUROPS_PORT_2}:7860"
     depends_on:
       - postgres
     environment:
-      - LANGFLOW_DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      - CENTAUROPS_DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
       - LANGFLOW_CONFIG_DIR=${LANGFLOW_CONFIG_DIR}
-      - LANGFLOW_HOST=${LANGFLOW_HOST}
+      - CENTAUROPS_HOST=${CENTAUROPS_HOST}
       - PORT=7860
     volumes:
       - langflow-data-2:/app/langflow
