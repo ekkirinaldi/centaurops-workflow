@@ -9,8 +9,6 @@ import ChatWidget from '@site/src/components/ChatWidget';
 
 On the [Publish pane](/concepts-publish), the **Embed into site** tab displays code that can be inserted in the `<body>` of your HTML to interact with your flow.
 
-The chat widget is implemented as a web component called `langflow-chat` and is loaded from a CDN. For more information, see the [langflow-embedded-chat repository](https://github.com/langflow-ai/langflow-embedded-chat).
-
 For a sandbox example, see the [CentaurOps embedded chat CodeSandbox](https://codesandbox.io/p/sandbox/langflow-embedded-chat-example-dv9zpx).
 
 The following example includes the minimum required inputs, called [props](https://react.dev/learn/passing-props-to-a-component) in React, for using the chat widget in your HTML code, which are `host_url` and `flow_id`.
@@ -36,8 +34,6 @@ When this code is embedded within HTML, it becomes a responsive chatbot, powered
 ![Default chat widget](/img/chat-widget-default.png)
 
 To configure your chat widget further, include additional props.
-
-All props and their types are listed in [index.tsx](https://github.com/langflow-ai/langflow-embedded-chat/blob/main/src/index.tsx).
 
 To add some styling to the chat widget, customize its elements with JSON:
 ```html

@@ -259,16 +259,5 @@ module.exports = {
         },
       ],
     },
-    {
-      type: "category",
-      label: "Changelog",
-      items: [
-        {
-          type: "link",
-          label: "Changelog",
-          href: "https://github.com/langflow-ai/langflow/releases/latest",
-        },
-      ],
-    },
   ],
 };

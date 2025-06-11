@@ -103,8 +103,6 @@ To modify the location of your log file:
 1. Add `LANGFLOW_LOG_FILE=path/to/logfile.log` in your `.env` file.
 2. To start CentaurOps with the values from your `.env` file, start CentaurOps with `uv run langflow run --env-file .env`.
 
-An example `.env` file is available in the [project repository](https://github.com/langflow-ai/langflow/blob/main/.env.example).
-
 ## Projects
 
 The **Projects** page displays all the flows you've created in the CentaurOps workspace.

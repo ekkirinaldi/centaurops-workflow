@@ -74,7 +74,7 @@ CentaurOps uses the [Fernet](https://pypi.org/project/cryptography/) library for
 
 If no `LANGFLOW_SECRET_KEY` is provided, CentaurOps automatically generates one.
 
-For more information, see [Authentication](/configuration-authentication#langflow_secret_key).
+For more information, see [Authentication](/configuration-authentication#centaurops_secret_key).
 
 ## Revoke an API key
 

@@ -96,8 +96,6 @@ To receive `Message` objects in a component input, you can use the `MessageInput
 
 The `ContentBlock` object is a list of multiple `ContentTypes`. It allows you to include multiple types of content within a single `Message`, including images, videos, and text.
 
-Content types are Pydantic base classes constructed from the types in [content_types.py](https://github.com/langflow-ai/langflow/blob/main/src/backend/base/langflow/schema/content_types.py).
-
 Each content type has specific fields related to its data type. For example:
 
 * `TextContent` has a `text` field for storing strings of text

@@ -25,8 +25,6 @@ The option to export a flow is available in the same menu as shown above. Once e
 
 CentaurOps JSON files contain [nodes](#nodes) and [edges](#edges) that describe components and connections, and [additional metadata](#additional-metadata-and-project-information) that describe the flow.
 
-For an example CentaurOps JSON file, examine the [Basic Prompting.json](https://github.com/langflow-ai/langflow/blob/main/src/backend/base/langflow/initial_setup/starter_projects/Basic%20Prompting.json) file in the CentaurOps repository.
-
 ### Nodes
 
 **Nodes** represent the components that make up the flow.

@@ -61,8 +61,6 @@ The following table lists the handle colors and their corresponding data types:
 
 A component inherits from a base `Component` class that defines its interface and behavior.
 
-For example, the [Recursive character text splitter](https://github.com/langflow-ai/langflow/blob/main/src/backend/base/langflow/components/langchain_utilities/recursive_character.py) is a child of the [LCTextSplitterComponent](https://github.com/langflow-ai/langflow/blob/main/src/backend/base/langflow/base/textsplitters/model.py) class.
-
 <details>
 <summary>Recursive character text splitter code</summary>
 

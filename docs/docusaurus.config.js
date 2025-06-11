@@ -18,7 +18,7 @@ const config = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   onBrokenAnchors: "warn",
-  organizationName: "langflow-ai",
+  organizationName: "centaurops",
   projectName: "langflow",
   trailingSlash: false,
   staticDirectories: ["static"],
@@ -294,31 +294,7 @@ const config = {
           alt: "CentaurOps",
           src: "img/langflow-logo-black.svg",
           srcDark: "img/langflow-logo-white.svg",
-        },
-        items: [
-          // right
-          {
-            position: "right",
-            href: "https://github.com/langflow-ai/langflow",
-            className: "header-github-link",
-            target: "_blank",
-            rel: null,
-          },
-          {
-            position: "right",
-            href: "https://twitter.com/langflow_ai",
-            className: "header-twitter-link",
-            target: "_blank",
-            rel: null,
-          },
-          {
-            position: "right",
-            href: "https://discord.gg/EqksyE2EX9",
-            className: "header-discord-link",
-            target: "_blank",
-            rel: null,
-          },
-        ],
+        }
       },
       colorMode: {
         defaultMode: "light",
